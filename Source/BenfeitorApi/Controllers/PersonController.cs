@@ -39,13 +39,19 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
         }
 
         [HttpGet]
-        [Route("accounts/{id}")]
+        [Route("accounts/{personKey}")]
         public IHttpActionResult GetAccount(Guid personKey)
         {
+            try
+            {
+                var response = this._personService.GetPerson(personKey);
 
-            var response = this._personService.GetPerson(personKey);
-
-            return Ok(response);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         [HttpPatch]

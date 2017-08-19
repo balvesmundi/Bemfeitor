@@ -131,7 +131,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
                 LoanInCents = person.LoanInCents,
                 DueDate = person.DueDate,
                 TaxPerDay = person.TaxPerDay,
-                Address = PersonMapper.MapAddressResponse(person.Addresses.FirstOrDefault()),
+                Address = PersonMapper.MapAddressResponse(person.Addresses?.FirstOrDefault()),
                 Documents = MapDocumentsResponse(person.Documents)
             };
         }
