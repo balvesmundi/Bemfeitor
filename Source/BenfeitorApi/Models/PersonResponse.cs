@@ -18,7 +18,7 @@ namespace BenfeitorApi.Models
         public string MobilePhone { get; set; }
         public string HomePhone { get; set; }
         public string WorkPhone { get; set; }
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
 
         public AddressResponse Address { get; set; }
     }

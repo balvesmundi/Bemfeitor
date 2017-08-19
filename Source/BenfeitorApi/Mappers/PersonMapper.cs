@@ -46,12 +46,37 @@ namespace BenfeitorApi.Mappers
 
         public static PersonResponse MapPersonResponse(Person person)
         {
-            throw new NotImplementedException();
+            return new PersonResponse()
+            {
+                Address = PersonMapper.MapAddressResponse(person.Address),
+                BirthDate = person.BirthDate,
+                CreateDate = person.CreateDate,
+                Email = person.Email,
+                FacebookId = person.FacebookId,
+                GenderEnum = person.GenderEnum,
+                HomePhone = person.HomePhone,
+                MobilePhone = person.MobilePhone,
+                Name = person.Name,
+                PersonKey = person.PersonKey,
+                TwitterId = person.TwitterId,
+                WorkPhone = person.WorkPhone
+            };
         }
 
         public static AddressResponse MapAddressResponse(Address address)
         {
-            throw new NotImplementedException();
+
+            return new AddressResponse()
+            {
+                City = address.City,
+                Complement = address.Complement,
+                Country = address.Country,
+                District = address.District,
+                Number = address.Number,
+                State = address.State,
+                Street = address.Street,
+                ZipCode = address.ZipCode
+            };
         }
     }
 }

@@ -8,6 +8,6 @@ namespace Repository.Interfaces
 
         void CreatePerson(Person person);
 
-        Person GetPerson(Guid personKey);
+        Person GetPersonByKey(Guid personKey);
     }
 }

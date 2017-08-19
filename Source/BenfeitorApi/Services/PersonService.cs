@@ -28,7 +28,7 @@ namespace BenfeitorApi.Services
 
         public PersonResponse GetPerson(Guid personKey)
         {
-            var person = this._personRepository.GetPerson(personKey);
+            var person = this._personRepository.GetPersonByKey(personKey);
 
             return PersonMapper.MapPersonResponse(person);
         }
