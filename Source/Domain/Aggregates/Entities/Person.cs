@@ -55,8 +55,8 @@ namespace Domain.Aggregates.Entities
 
         public long CountGrade { get; set; }
 
-        public bool HasBorrowed { get; set; }
+        public int CountAsBorrower { get; set; }
 
-        public bool HasLended { get; set; }
+        public int CountAsLender { get; set; }
     }
 }

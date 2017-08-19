@@ -72,7 +72,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
             };
         }
 
-        private static List<Document> MapDocuments(List<CreateDocumentRequest> documentsRequest)
+        public static List<Document> MapDocuments(List<CreateDocumentRequest> documentsRequest)
         {
             if (documentsRequest == null)
                 return null;
@@ -91,7 +91,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
             return documentsList;
         }
 
-        private static Address MapAddress(CreateAddressRequest addressRequest)
+        public static Address MapAddress(CreateAddressRequest addressRequest)
         {
             if (addressRequest == null) { return null; }
 

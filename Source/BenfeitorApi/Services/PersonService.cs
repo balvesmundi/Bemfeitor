@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using MundiPagg.Benfeitor.Domain.Seedwork.Specifications;
 using Domain.Aggregates.Entities;
 using System.Linq;
+using BenfeitorApi.Models.Enums;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 {
@@ -59,16 +60,33 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 
         public PersonResponse UpdatePerson(Guid personKey, CreatePersonRequest request)
         {
-            //var personRequest = PersonMapper.MapPerson(request);
-
-            //var person = this._personRepository.PatchPerson(personRequest);
-
+            if (request == null) return null;
 
             using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted }))
             {
                 var person = this._personRepository.FindOne(p => p.PersonKey == personKey);
-                PersonMapper.MapPerson(request);
 
+                if (request.BirthDate != null) person.BirthDate = request.BirthDate;
+                if (request.Email != null) person.Email = request.Email;
+                if (request.FacebookId != null) person.FacebookId = request.FacebookId;
+                if (request.GenderEnum != null) person.GenderEnum = request.GenderEnum;
+                if (request.HomePhone != null) person.HomePhone = request.HomePhone;
+                if (request.MobilePhone != null) person.MobilePhone = request.MobilePhone;
+                if (request.Name != null) person.Name = request.Name;
+                if (request.TwitterId != null) person.TwitterId = request.TwitterId;
+                if (request.WorkPhone != null) person.WorkPhone = request.WorkPhone;
+                if (request.Address != null) person.Addresses = new List<Address>(){
+                    PersonMapper.MapAddress(request.Address)
+                };
+                if (request.BalanceInCents != null) person.BalanceInCents = request.BalanceInCents;
+                if (request.DueDate != null) person.DueDate = request.DueDate;
+                if (request.LoanInCents != null) person.LoanInCents = request.LoanInCents;
+                if (request.LoanTypeEnum != LoanTypeEnum.Undefined) person.LoanTypeEnum = request.LoanTypeEnum.ToString();
+                if (request.TaxPerDay != null) person.TaxPerDay = request.TaxPerDay;
+                if (request.Documents != null) person.Documents = PersonMapper.MapDocuments(request.Documents);
+                if (request.Username != null) person.Username = request.Username;
+                if (request.Password != null) person.Password = request.Password;
+                
                 this._personRepository.UnitOfWork.Commit();
 
                 scope.Complete();
@@ -129,11 +147,11 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
             }
             if (request.HasBorrowed.HasValue && request.HasBorrowed == true)
             {
-                filter &= new DirectSpecification<Person>(p => p.HasBorrowed == true);
+                filter &= new DirectSpecification<Person>(p => p.CountAsBorrower > 0);
             }
             if (request.HasLended.HasValue && request.HasLended == true)
             {
-                filter &= new DirectSpecification<Person>(p => p.HasLended == true);
+                filter &= new DirectSpecification<Person>(p => p.CountAsLender > 0);
             }
 
             #endregion

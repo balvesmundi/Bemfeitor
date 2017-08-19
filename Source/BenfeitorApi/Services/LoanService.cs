@@ -34,8 +34,16 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 
                 this._loanRepository.UnitOfWork.Commit();
 
-                scope.Complete();
+                //Atualiza CountAsBorrower e CountAsLender
+                var lender = this._personRepository.FindOne(p => p.PersonId == lenderId);
+                lender.CountAsLender++;
+                this._personRepository.UnitOfWork.Commit();
 
+                var borrower = this._personRepository.FindOne(p => p.PersonId == borrowerId);
+                borrower.CountAsBorrower++;
+                this._personRepository.UnitOfWork.Commit();
+
+                scope.Complete();
                 return LoanMapper.MapLoanHistoryResponse(loanHistory);
             }
         }
