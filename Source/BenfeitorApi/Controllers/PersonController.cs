@@ -44,20 +44,8 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
         {
             try
             {
-
-            }
-            // TO DO: autenticar
-            var response = this._personService.GetPerson(personKey);
-
-            return Ok(response);
-        }
-
-        [HttpGet]
-        [Route("accounts/other/{id}")]
-        public IHttpActionResult GetOtherAccount(Guid otherPersonKey)
-        {
-            
-            var response = this._personService.GetOtherPerson(otherPersonKey);
+                // TO DO: autenticar
+                var response = this._personService.GetPerson(personKey);
 
                 return Ok(response);
             }
@@ -65,6 +53,16 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
             {
                 throw;
             }
+        }
+
+        [HttpGet]
+        [Route("accounts/other/{otherPersonKey}")]
+        public IHttpActionResult GetOtherAccount(Guid otherPersonKey)
+        {
+
+            var response = this._personService.GetOtherPerson(otherPersonKey);
+
+            return Ok(response);
         }
 
         [HttpPatch]
@@ -80,7 +78,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
         }
 
         [HttpDelete]
-        [Route("accounts/{id}")]
+        [Route("accounts/{personKey}")]
         public IHttpActionResult DeleteAccount(Guid personKey)
         {
 
@@ -100,9 +98,9 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
         [Route("accounts/{personKey}/search")]
         public IHttpActionResult Search(Guid personKey, SearchRequest request)
         {
-            
+
             var response = this._personService.Search(personKey, request);
-            
+
             return Ok(response);
         }
 
