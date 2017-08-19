@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 using BenfeitorApi.Models;
 using BenfeitorApi.Services;
-using Repository.Interfaces;
 
 namespace BenfeitorApi.Controllers
 {
@@ -18,10 +13,7 @@ namespace BenfeitorApi.Controllers
 
         public PersonController(IPersonService personService)
         {
-
-
             this._personService = personService;
-
         }
 
         [HttpPost]
@@ -29,11 +21,9 @@ namespace BenfeitorApi.Controllers
         public IHttpActionResult CreateAccount(CreatePersonRequest request)
         {
 
-            // TODO: Create account
-            //_personService.CreateAccount(
+            var response = this._personService.CreatePerson(request);
 
-
-            return this.GetAccount(new Guid());
+            return Ok(response);
         }
 
         [HttpGet]
@@ -41,11 +31,7 @@ namespace BenfeitorApi.Controllers
         public IHttpActionResult GetAccount(Guid personKey)
         {
 
-            var response = new PersonResponse()
-            {
-                PersonKey = personKey,
-                //Name = request.Name
-            };
+            var response = this._personService.GetPerson(personKey);
 
             return Ok(response);
         }

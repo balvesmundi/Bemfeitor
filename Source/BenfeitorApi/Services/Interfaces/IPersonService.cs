@@ -1,10 +1,11 @@
-﻿using BenfeitorApi.Models;
+﻿using System;
+using BenfeitorApi.Models;
 
 namespace BenfeitorApi.Services
 {
     public interface IPersonService
     {
-        PersonResponse CreateAccount(CreatePersonRequest request);
-        PersonResponse GetAccount(string id);
+        PersonResponse CreatePerson(CreatePersonRequest request);
+        PersonResponse GetPerson(Guid personKey);
     }
 }
