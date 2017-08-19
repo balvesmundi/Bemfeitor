@@ -5,11 +5,10 @@ using System.Web;
 
 namespace BenfeitorApi.Models
 {
-    public class AccountResponse
+    public class CreatePersonRequest
     {
 
-        public string Id { get; set; }
-
         public string Name { get; set; }
+
     }
 }
