@@ -28,9 +28,9 @@ namespace Domain.Aggregates.Entities
 
         public DateTime CreateDate { get; set; }
 
-        public Person PersonLender { get; set; }
+        public Person Lender { get; set; }
 
-        public Person PersonBorrower { get; set; }
+        public Person Borrower { get; set; }
     }
 
 }

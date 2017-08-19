@@ -9,5 +9,7 @@
         public string DocumentType { get; set; }
 
         public string DocumentNumber { get; set; }
+
+        public virtual Person Person { get; set; }
     }
 }

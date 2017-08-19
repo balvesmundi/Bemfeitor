@@ -57,8 +57,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 
         public List<LoanResponse> GetMyLoans(Guid personKey)
         {
-            var personId = this._personRepository.FindOne(p => p.PersonKey == personKey)?.PersonId;
-            var loans = this._loanRepository.FindAll(p => p.PersonBorrowerId == personId || p.PersonLenderId == personId).ToList();
+            var loans = this._loanRepository.FindAll(p => p.Borrower.PersonKey == personKey || p.Lender.PersonKey == personKey).ToList();
 
             return LoanMapper.MapLoanHistoryResponse(loans);
         }

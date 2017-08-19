@@ -47,9 +47,9 @@ namespace Domain.Aggregates.Entities
 
         public string BearerToken { get; set; }
 
-        public List<Address> Addresses { get; set; }
+        public virtual List<Address> Addresses { get; set; }
 
-        public List<Document> Documents { get; set; }
+        public virtual List<Document> Documents { get; set; }
 
         public long SumGrade { get; set; }
 
@@ -58,5 +58,9 @@ namespace Domain.Aggregates.Entities
         public int CountAsBorrower { get; set; }
 
         public int CountAsLender { get; set; }
+
+        public virtual List<LoanHistory> BorrowedLoans { get; set; }
+
+        public virtual List<LoanHistory> LendedLoans { get; set; }
     }
 }

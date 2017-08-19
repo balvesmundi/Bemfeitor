@@ -22,6 +22,8 @@ namespace MundiPagg.Benfeitor.Infrastructure.Data.Mappings {
             Property(p => p.CommentToBorrower).IsOptional();
             Property(p => p.CreateDate).IsRequired();
 
+            HasRequired(p => p.Borrower).WithMany(p => p.BorrowedLoans).HasForeignKey(p => p.PersonBorrowerId);
+            HasRequired(p => p.Lender).WithMany(p => p.LendedLoans).HasForeignKey(p => p.PersonLenderId);
         }
     }
 }

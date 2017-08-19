@@ -33,7 +33,6 @@ namespace MundiPagg.Benfeitor.Infrastructure.Data.Mappings
             Property(p => p.Username).IsRequired();
             Property(p => p.Password).IsRequired();
             Property(p => p.BearerToken).IsOptional();
-
         }
     }
 }

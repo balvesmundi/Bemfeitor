@@ -9,6 +9,7 @@ using MundiPagg.Benfeitor.BenfeitorApi.Models;
 using MundiPagg.Benfeitor.BenfeitorApi.Services;
 using MundiPagg.Benfeitor.BenfeitorApi.Models.Request;
 using MundiPagg.Benfeitor.BenfeitorApi.Attributes;
+using MundiPagg.Benfeitor.BenfeitorApi.Models.Response;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
 {
@@ -28,7 +29,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
         
 
         [HttpPost]
-        [Route("loan")]
+        [Route("loans")]
         public IHttpActionResult CreateLoan(CreateLoanRequest request)
         {
             var borrowerId = _personService.GetPersonId(request.PersonBorrowerKey);
@@ -49,13 +50,22 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
         }
 
         [HttpGet]
-        [Route("loans/{personKey}")]
-        public IHttpActionResult GetMyLoans(Guid personKey)
+        [Route("loans")]
+        public IHttpActionResult GetMyLoans()
         {
 
-            var response = _loanService.GetMyLoans(personKey);
+            try
+            {
+                var person = this.Request.Properties["Person"] as PersonResponse;
 
-            return Ok(response);
+                var response = this._loanService.GetMyLoans(person.PersonKey);
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         protected override void Dispose(bool disposing)

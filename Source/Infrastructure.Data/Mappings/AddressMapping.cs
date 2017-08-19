@@ -19,7 +19,6 @@ namespace MundiPagg.Benfeitor.Infrastructure.Data.Mappings
             Property(p => p.ZipCode).IsRequired();
 
             HasRequired(p => p.Person).WithMany(p => p.Addresses).HasForeignKey(p => p.PersonId);
-            //HasRequired(p => p.Order).WithMany(p => p.Items).HasForeignKey(p => p.OrderId);
         }
     }
 }
