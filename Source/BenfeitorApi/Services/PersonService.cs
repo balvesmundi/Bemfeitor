@@ -79,7 +79,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 
         public PersonResponse GetPerson(Guid personKey)
         {
-            var person = this._personRepository.FindOne(p => p.PersonKey == personKey);
+            var person = this._personRepository.FindOne(p => p.PersonKey == personKey, include => include.Addresses);
 
             return PersonMapper.MapPersonResponse(person);
         }
