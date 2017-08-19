@@ -42,8 +42,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
                 return new AuthenticateResponse()
                 {
                     Bearer = person.BearerToken,
-                    Success = true,
-                    PersonKey = person.PersonKey
+                    Success = true
                 };
             }
         }
