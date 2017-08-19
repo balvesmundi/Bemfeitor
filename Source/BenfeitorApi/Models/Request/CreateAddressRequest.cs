@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace BenfeitorApi.Models
+﻿namespace BenfeitorApi.Models.Request
 {
-    public class AddressResponse
+    public class CreateAddressRequest
     {
 
         public string Country { get; set; }

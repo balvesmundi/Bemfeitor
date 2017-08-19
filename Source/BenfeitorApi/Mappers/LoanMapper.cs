@@ -1,4 +1,6 @@
 ﻿using BenfeitorApi.Models;
+using BenfeitorApi.Models.Request;
+using BenfeitorApi.Models.Response;
 using Repository.Entities;
 using Repository.Enums;
 using System;
@@ -22,6 +24,14 @@ namespace BenfeitorApi.Mappers
                 CreateDate = DateTime.UtcNow,
                 PersonBorrowerId = request.PersonBorrowerId,
                 PersonLenderId = request.PersonLenderId
+            };
+        }
+
+        public static LoanResponse MapLoanHistoryResponse(LoanHistory loanHistory)
+        {
+            return new LoanResponse()
+            {
+
             };
         }
     }

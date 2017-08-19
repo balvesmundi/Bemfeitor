@@ -1,6 +1,9 @@
 ﻿using System;
 using BenfeitorApi.Models;
 using Repository.Entities;
+using BenfeitorApi.Models.Request;
+using BenfeitorApi.Models.Response;
+using System.Collections.Generic;
 
 namespace BenfeitorApi.Mappers
 {
@@ -23,24 +26,49 @@ namespace BenfeitorApi.Mappers
                 PersonKey = Guid.NewGuid(),
                 TwitterId = request.TwitterId,
                 WorkPhone = request.WorkPhone,
-                Address = PersonMapper.MapAddress(request.Address)
+                Address = PersonMapper.MapAddress(request.Address),
+                BalanceInCents = request.BalanceInCents,
+                DueDate = request.DueDate,
+                LoanInCents = request.LoanInCents,
+                LoanTypeEnum = request.LoanTypeEnum.ToString(),
+                TaxPerDay = request.TaxPerDay,
+                Documents = PersonMapper.MapDocuments(request.Documents)
             };
         }
 
-        public static Address MapAddress(CreateAddressRequest request)
+        private static List<Document> MapDocuments(List<CreateDocumentRequest> documentsRequest)
         {
-            if (request == null) { return null; }
+            if (documentsRequest == null)
+                return null;
+
+            var documentsList = new List<Document>();
+
+            foreach (var docRequest in documentsRequest)
+            {
+                documentsList.Add(new Document()
+                {
+                    DocumentNumber = docRequest.DocumentNumber,
+                    DocumentType = docRequest.DocumentType
+                });
+            }
+
+            return documentsList;
+        }
+
+        private static Address MapAddress(CreateAddressRequest addressRequest)
+        {
+            if (addressRequest == null) { return null; }
 
             return new Address()
             {
-                City = request.City,
-                Complement = request.Complement,
-                Country = request.Country,
-                District = request.District,
-                Number = request.Number,
-                State = request.State,
-                Street = request.Street,
-                ZipCode = request.ZipCode
+                City = addressRequest.City,
+                Complement = addressRequest.Complement,
+                Country = addressRequest.Country,
+                District = addressRequest.District,
+                Number = addressRequest.Number,
+                State = addressRequest.State,
+                Street = addressRequest.Street,
+                ZipCode = addressRequest.ZipCode
             };
         }
 

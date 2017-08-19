@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Repository.Entities
 {
@@ -39,5 +40,7 @@ namespace Repository.Entities
         public decimal? TaxPerDay { get; set; }
 
         public Address Address { get; set; }
+
+        public List<Document> Documents { get; set; } 
     }
 }

@@ -1,6 +1,9 @@
-﻿using System;
+﻿using BenfeitorApi.Models.Enums;
+using BenfeitorApi.Models.Request;
+using System;
+using System.Collections.Generic;
 
-namespace BenfeitorApi.Models
+namespace BenfeitorApi.Models.Request
 {
 
     public class CreatePersonRequest
@@ -15,7 +18,14 @@ namespace BenfeitorApi.Models
         public string HomePhone { get; set; }
         public string WorkPhone { get; set; }
         public DateTime BirthDate { get; set; }
+        public long? BalanceInCents { get; set; }
+        public LoanTypeEnum LoanTypeEnum { get; set; }
+        public long? LoanInCents { get; set; }
+        public DateTime? DueDate { get; set; }
+        public decimal? TaxPerDay { get; set; }
 
         public CreateAddressRequest Address { get; set; }
+
+        public List<CreateDocumentRequest> Documents { get; set; }
     }
 }

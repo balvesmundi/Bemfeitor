@@ -1,5 +1,7 @@
 ﻿using System;
 using BenfeitorApi.Models;
+using BenfeitorApi.Models.Response;
+using BenfeitorApi.Models.Request;
 
 namespace BenfeitorApi.Services
 {

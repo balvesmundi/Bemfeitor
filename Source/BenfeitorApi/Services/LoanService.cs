@@ -4,6 +4,9 @@ using System.Linq;
 using System.Web;
 using BenfeitorApi.Models;
 using Repository.Interfaces;
+using BenfeitorApi.Mappers;
+using BenfeitorApi.Models.Request;
+using BenfeitorApi.Models.Response;
 
 namespace BenfeitorApi.Services
 {
@@ -15,19 +18,19 @@ namespace BenfeitorApi.Services
         {
 
             this._loanRepository = loanRepository;
-
         }
 
         public LoanResponse CreateLoan(CreateLoanRequest request)
         {
             // TODO: Create loan
+            var loanHistory = LoanMapper.MapLoanHistory(request);
 
-            var id = "1";
+            this._loanRepository.CreateLoanHistory(loanHistory);
 
-            return this.GetLoan(id);
+            return LoanMapper.MapLoanHistoryResponse(loanHistory);
         }
 
-        public LoanResponse GetLoan(string id)
+        public LoanResponse GetLoan(long id)
         {
             throw new NotImplementedException();
         }

@@ -2,6 +2,8 @@
 using BenfeitorApi.Mappers;
 using BenfeitorApi.Models;
 using Repository.Interfaces;
+using BenfeitorApi.Models.Response;
+using BenfeitorApi.Models.Request;
 
 namespace BenfeitorApi.Services
 {
@@ -14,7 +16,6 @@ namespace BenfeitorApi.Services
         {
 
             this._personRepository = personRepository;
-
         }
 
         public PersonResponse CreatePerson(CreatePersonRequest request)

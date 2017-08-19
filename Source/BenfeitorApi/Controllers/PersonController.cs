@@ -2,6 +2,7 @@
 using System.Web.Http;
 using BenfeitorApi.Models;
 using BenfeitorApi.Services;
+using BenfeitorApi.Models.Request;
 
 namespace BenfeitorApi.Controllers
 {

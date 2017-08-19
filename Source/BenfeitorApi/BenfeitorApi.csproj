@@ -99,12 +99,15 @@
     </Compile>
     <Compile Include="Mappers\LoanMapper.cs" />
     <Compile Include="Mappers\PersonMapper.cs" />
-    <Compile Include="Models\AddressResponse.cs" />
-    <Compile Include="Models\CreateAddressRequest.cs" />
-    <Compile Include="Models\CreateLoanRequest.cs" />
-    <Compile Include="Models\LoanResponse.cs" />
-    <Compile Include="Models\PersonResponse.cs" />
-    <Compile Include="Models\CreatePersonRequest.cs" />
+    <Compile Include="Models\Request\CreateDocumentRequest.cs" />
+    <Compile Include="Models\Response\AddressResponse.cs" />
+    <Compile Include="Models\Request\CreateAddressRequest.cs" />
+    <Compile Include="Models\Request\CreateLoanRequest.cs" />
+    <Compile Include="Models\Response\DocumentResponse.cs" />
+    <Compile Include="Models\Enums\LoanTypeEnum.cs" />
+    <Compile Include="Models\Response\LoanResponse.cs" />
+    <Compile Include="Models\Response\PersonResponse.cs" />
+    <Compile Include="Models\Request\CreatePersonRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\Interfaces\ILoanService.cs" />
     <Compile Include="Services\Interfaces\IPersonService.cs" />
