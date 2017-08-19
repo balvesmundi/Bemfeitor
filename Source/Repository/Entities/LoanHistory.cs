@@ -14,7 +14,7 @@ namespace Repository.Entities
 
         public long AmountInCents { get; set; }
 
-        public DateTime? DuehDate { get; set; }
+        public DateTime? DueDate { get; set; }
 
         public decimal? TaxPerDay { get; set; }
 
@@ -26,6 +26,7 @@ namespace Repository.Entities
 
         public string CommentToBorrower { get; set; }
 
+        public DateTime CreateDate { get; set; }
     }
 
 }

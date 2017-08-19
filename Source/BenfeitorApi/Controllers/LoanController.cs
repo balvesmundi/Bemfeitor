@@ -29,17 +29,17 @@ namespace BenfeitorApi.Controllers
             //_loanService.CreateLoan(
 
 
-            return this.GetLoan(new Guid());
+            return this.GetLoan(new long());
         }
 
         [HttpGet]
         [Route("loans/{id}")]
-        public IHttpActionResult GetLoan(Guid personKey)
+        public IHttpActionResult GetLoan(long loanHistoryId)
         {
 
-            var response = new PersonResponse()
+            var response = new LoanResponse()
             {
-                PersonKey = personKey,
+                
                 //Name = request.Name
             };
 
