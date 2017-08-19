@@ -26,8 +26,8 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
             using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted }))
             {
                 // TODO: Create loan
-                var loanHistory = LoanMapper.MapLoanHistory(request);
-            var loanHistory = LoanMapper.MapLoanHistory(request, borrowerId, lenderId);
+                //    var loanHistory = LoanMapper.MapLoanHistory(request);
+                var loanHistory = LoanMapper.MapLoanHistory(request, borrowerId, lenderId);
 
                 this._loanRepository.Add(loanHistory);
 
@@ -41,7 +41,8 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 
         public LoanResponse GetLoan(long id)
         {
-            var loan = this._loanRepository.GetLoanHistory(id);
+            //var loan = this._loanRepository.GetLoanHistory(id);
+            var loan = this._loanRepository.FindOne(p => p.LoanHistoryId == id);
 
             return LoanMapper.MapLoanHistoryResponse(loan);
         }

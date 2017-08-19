@@ -55,7 +55,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 
         public long GetPersonId(Guid personKey)
         {
-            return this._personRepository.GetPersonId(personKey);
+            return this._personRepository.FindOne(p => p.PersonKey == personKey).PersonId;
         }
 
 

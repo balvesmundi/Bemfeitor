@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using BenfeitorApi.Models.Enums;
 using BenfeitorApi.Models.Request;
+using BenfeitorApi.Models.Response;
 using Domain.Aggregates.Entities;
 using MundiPagg.Benfeitor.BenfeitorApi.Models;
 using MundiPagg.Benfeitor.BenfeitorApi.Models.Request;
