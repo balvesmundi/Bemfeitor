@@ -67,6 +67,10 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
             return this._personRepository.FindOne(p => p.PersonKey == personKey).PersonId;
         }
 
+        public void DeletePerson(Guid personKey)
+        {
+            this._personRepository.DeletePerson(personKey);
+        }
 
         #region IDisposable Members
 
@@ -77,10 +81,5 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
         }
 
         #endregion
-
-        public void DeletePerson(Guid personKey)
-        {
-            this._personRepository.DeletePerson(personKey);
-        }
     }
 }
