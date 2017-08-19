@@ -26,6 +26,7 @@ namespace MundiPagg.Benfeitor.Infrastructure.Data.Mappings {
             Property(p => p.DueDate).IsOptional();
             Property(p => p.TaxPerDay).IsOptional();
             Property(p => p.Name).IsRequired();
+            Property(p => p.IsEnabled).IsRequired();
         }
     }
 }

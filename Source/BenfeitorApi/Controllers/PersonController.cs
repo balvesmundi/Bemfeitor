@@ -39,10 +39,12 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
 
         [HttpPatch]
         [Route("accounts")]
-        public IHttpActionResult GetAccount(CreatePersonRequest request)
+        public IHttpActionResult UpdateAccount(CreatePersonRequest request)
         {
 
-            var response = this._personService.PatchPerson(request);
+            Guid personKey = new Guid();
+
+            var response = this._personService.UpdatePerson(personKey, request);
 
             return Ok(response);
         }
@@ -56,7 +58,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
             {
                 this._personService.DeletePerson(personKey);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return BadRequest();
             }

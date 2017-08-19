@@ -30,8 +30,6 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
                 {
                     this._personRepository.Add(person);
 
-
-                    //this._addressRepository.UnitOfWork.Commit();
                     this._personRepository.UnitOfWork.Commit();
 
 
@@ -46,13 +44,24 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
             }
         }
 
-        public PersonResponse PatchPerson(CreatePersonRequest request)
+        public PersonResponse UpdatePerson(Guid personKey, CreatePersonRequest request)
         {
-            var personRequest = PersonMapper.MapPerson(request);
+            //var personRequest = PersonMapper.MapPerson(request);
 
-            var person = this._personRepository.PatchPerson(personRequest);
+            //var person = this._personRepository.PatchPerson(personRequest);
 
-            return PersonMapper.MapPersonResponse(person);
+
+            using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted }))
+            {
+                var person = this._personRepository.FindOne(p => p.PersonKey == personKey);
+                PersonMapper.MapPerson(request);
+
+                this._personRepository.UnitOfWork.Commit();
+
+                scope.Complete();
+
+                return PersonMapper.MapPersonResponse(person);
+            }
         }
 
         public PersonResponse GetPerson(Guid personKey)
@@ -69,7 +78,15 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 
         public void DeletePerson(Guid personKey)
         {
-            this._personRepository.DeletePerson(personKey);
+            using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted }))
+            {
+                var person = this._personRepository.FindOne(p => p.PersonKey == personKey);
+                person.IsEnabled = false;
+
+                this._personRepository.UnitOfWork.Commit();
+
+                scope.Complete();
+            }
         }
 
         #region IDisposable Members

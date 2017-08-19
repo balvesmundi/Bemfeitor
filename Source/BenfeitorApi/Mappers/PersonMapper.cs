@@ -41,6 +41,34 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
             };
         }
 
+        public static Person UpdatePerson(CreatePersonRequest request)
+        {
+
+            return new Person()
+            {
+                BirthDate = request.BirthDate,
+                CreateDate = DateTime.UtcNow,
+                Email = request.Email,
+                FacebookId = request.FacebookId,
+                GenderEnum = request.GenderEnum,
+                HomePhone = request.HomePhone,
+                MobilePhone = request.MobilePhone,
+                Name = request.Name,
+                PersonKey = Guid.NewGuid(),
+                TwitterId = request.TwitterId,
+                WorkPhone = request.WorkPhone,
+                Addresses = new List<Address>(){
+                    PersonMapper.MapAddress(request.Address)
+                },
+                BalanceInCents = request.BalanceInCents,
+                DueDate = request.DueDate,
+                LoanInCents = request.LoanInCents,
+                LoanTypeEnum = request.LoanTypeEnum.ToString(),
+                TaxPerDay = request.TaxPerDay,
+                Documents = PersonMapper.MapDocuments(request.Documents)
+            };
+        }
+
         private static List<Document> MapDocuments(List<CreateDocumentRequest> documentsRequest)
         {
             if (documentsRequest == null)
