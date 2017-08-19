@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Data", "Infr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{1339482C-FFCE-480A-9F4A-B748AF5407FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Infrastructure.Payment", "Infrastructure.Payment\Infrastructure.Payment.csproj", "{88F999EB-A800-4620-8174-E2BDF8EE86C9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Connectria|Any CPU = Connectria|Any CPU
@@ -46,6 +48,14 @@ Global
 		{1339482C-FFCE-480A-9F4A-B748AF5407FC}.PreProd|Any CPU.Build.0 = Release|Any CPU
 		{1339482C-FFCE-480A-9F4A-B748AF5407FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1339482C-FFCE-480A-9F4A-B748AF5407FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{88F999EB-A800-4620-8174-E2BDF8EE86C9}.Connectria|Any CPU.ActiveCfg = Release|Any CPU
+		{88F999EB-A800-4620-8174-E2BDF8EE86C9}.Connectria|Any CPU.Build.0 = Release|Any CPU
+		{88F999EB-A800-4620-8174-E2BDF8EE86C9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{88F999EB-A800-4620-8174-E2BDF8EE86C9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{88F999EB-A800-4620-8174-E2BDF8EE86C9}.PreProd|Any CPU.ActiveCfg = Release|Any CPU
+		{88F999EB-A800-4620-8174-E2BDF8EE86C9}.PreProd|Any CPU.Build.0 = Release|Any CPU
+		{88F999EB-A800-4620-8174-E2BDF8EE86C9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{88F999EB-A800-4620-8174-E2BDF8EE86C9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

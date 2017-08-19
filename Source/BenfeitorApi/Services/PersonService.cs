@@ -130,7 +130,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
             }
         }
 
-        public List<PersonResponse> Search(Guid personKey, SearchRequest request)
+        public List<PersonResponse> Search(SearchRequest request)
         {
             #region Filters
 
