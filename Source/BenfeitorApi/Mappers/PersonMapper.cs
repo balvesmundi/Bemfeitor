@@ -77,37 +77,63 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
 
         public static PersonResponse MapPersonResponse(Person person)
         {
+            LoanTypeEnum loanTypeEnum = LoanTypeEnum.Undefined;
+            Enum.TryParse<LoanTypeEnum>(person.LoanTypeEnum, out loanTypeEnum);
+            
             return new PersonResponse()
             {
-                Address = PersonMapper.MapAddressResponse(person.Addresses.FirstOrDefault()),
-                BirthDate = person.BirthDate,
+                PersonKey = person.PersonKey,
                 CreateDate = person.CreateDate,
                 Email = person.Email,
-                FacebookId = person.FacebookId,
-                GenderEnum = person.GenderEnum,
-                HomePhone = person.HomePhone,
-                MobilePhone = person.MobilePhone,
                 Name = person.Name,
-                PersonKey = person.PersonKey,
+                FacebookId = person.FacebookId,
                 TwitterId = person.TwitterId,
-                WorkPhone = person.WorkPhone
+                GenderEnum = person.GenderEnum,
+                MobilePhone = person.MobilePhone,
+                HomePhone = person.HomePhone,
+                WorkPhone = person.WorkPhone,
+                BirthDate = person.BirthDate,
+                BalanceInCents = person.BalanceInCents,
+                LoanTypeEnum = loanTypeEnum,
+                LoanInCents = person.LoanInCents,
+                DueDate = person.DueDate,
+                TaxPerDay = person.TaxPerDay,
+                Address = PersonMapper.MapAddressResponse(person.Addresses.FirstOrDefault()),
+                Documents = MapDocumentsResponse(person.Documents)
             };
         }
 
         public static AddressResponse MapAddressResponse(Address address)
         {
+            if (address == null) return null;
 
-            return new AddressResponse()
-            {
+            return new AddressResponse() {
                 City = address.City,
                 Complement = address.Complement,
                 Country = address.Country,
                 District = address.District,
                 Number = address.Number,
                 State = address.State,
-                Street = address.Street,
-                ZipCode = address.ZipCode
+                ZipCode = address.ZipCode,
+                Street = address.Street
             };
+        }
+
+        public static List<DocumentResponse> MapDocumentsResponse(List<Document> documents)
+        {
+            if (documents == null) return null;
+
+            var docs = new List<DocumentResponse>();
+
+            foreach(var doc in documents)
+            {
+                docs.Add(new DocumentResponse() {
+                    DocumentNumber = doc.DocumentNumber,
+                    DocumentType = doc.DocumentType
+                });
+            }
+
+            return docs;
         }
     }
 }

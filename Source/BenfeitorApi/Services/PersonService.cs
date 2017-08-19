@@ -53,6 +53,11 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
             return PersonMapper.MapPersonResponse(person);
         }
 
+        public long GetPersonId(Guid personKey)
+        {
+            return this._personRepository.GetPersonId(personKey);
+        }
+
 
         #region IDisposable Members
 

@@ -161,5 +161,10 @@ WHERE PersonId = @PersonId";
                 return database.ExecuteReader<Address>(query, new { PersonId = personId }).FirstOrDefault();
             }
         }
+
+        public long GetPersonId(Guid personKey)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

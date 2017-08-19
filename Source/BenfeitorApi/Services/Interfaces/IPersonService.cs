@@ -8,5 +8,6 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
     {
         PersonResponse CreatePerson(CreatePersonRequest request);
         PersonResponse GetPerson(Guid personKey);
+        long GetPersonId(Guid personKey);
     }
 }

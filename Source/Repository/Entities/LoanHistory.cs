@@ -10,13 +10,17 @@ namespace MundiPagg.Benfeitor.Repository.Entities
 
         public long PersonBorrowerId { get; set; }
 
+        public DateTime CreateDate { get; set; }
+
         public string LoanStatusEnum { get; set; }
+
 
         public long AmountInCents { get; set; }
 
         public DateTime? DueDate { get; set; }
 
         public decimal? TaxPerDay { get; set; }
+
 
         public byte? LenderGrade { get; set; }
 
@@ -25,8 +29,6 @@ namespace MundiPagg.Benfeitor.Repository.Entities
         public string CommentToLender { get; set; }
 
         public string CommentToBorrower { get; set; }
-
-        public DateTime CreateDate { get; set; }
     }
 
 }
