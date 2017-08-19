@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using BenfeitorApi.Models;
-using Repository.Interfaces;
+using MundiPagg.Benfeitor.BenfeitorApi.Models;
+using MundiPagg.Benfeitor.Repository.Interfaces;
 
-namespace BenfeitorApi.Services
+namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 {
     public class LoanService : ILoanService
     {

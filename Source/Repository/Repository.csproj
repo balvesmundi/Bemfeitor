@@ -7,7 +7,7 @@
     <ProjectGuid>{5643588B-C59D-416A-90CD-3F28CE8C2EDE}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Repository</RootNamespace>
+    <RootNamespace>MundiPagg.Benfeitor.Repository</RootNamespace>
     <AssemblyName>Repository</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

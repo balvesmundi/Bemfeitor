@@ -1,12 +1,12 @@
-﻿using BenfeitorApi.Models;
-using BenfeitorApi.Services;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
+using MundiPagg.Benfeitor.BenfeitorApi.Models;
+using MundiPagg.Benfeitor.BenfeitorApi.Services;
 
-namespace BenfeitorApi.Controllers
+namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
 {
     public class LoanController : ApiController
     {

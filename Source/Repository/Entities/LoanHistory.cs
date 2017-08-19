@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Repository.Entities
+namespace MundiPagg.Benfeitor.Repository.Entities
 {
     public class LoanHistory
     {

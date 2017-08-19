@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Linq;
 using Dlp.Connectors;
-using Repository.Entities;
-using Repository.Interfaces;
+using MundiPagg.Benfeitor.Repository.Entities;
+using MundiPagg.Benfeitor.Repository.Interfaces;
 
-namespace Repository
+namespace MundiPagg.Benfeitor.Repository
 {
     public class PersonRepository : BaseRepository, IPersonRepository
     {

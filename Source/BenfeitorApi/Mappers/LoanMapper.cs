@@ -1,12 +1,12 @@
-﻿using BenfeitorApi.Models;
-using Repository.Entities;
-using Repository.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using MundiPagg.Benfeitor.BenfeitorApi.Models;
+using MundiPagg.Benfeitor.Repository.Entities;
+using MundiPagg.Benfeitor.Repository.Enums;
 
-namespace BenfeitorApi.Mappers
+namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
 {
     public static class LoanMapper
     {

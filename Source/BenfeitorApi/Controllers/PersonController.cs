@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Web.Http;
-using BenfeitorApi.Models;
-using BenfeitorApi.Services;
+using MundiPagg.Benfeitor.BenfeitorApi.Models;
+using MundiPagg.Benfeitor.BenfeitorApi.Services;
 
-namespace BenfeitorApi.Controllers
+namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
 {
 
     public class PersonController : ApiController

@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace Repository
+namespace MundiPagg.Benfeitor.Repository
 {
 
     public abstract class BaseRepository

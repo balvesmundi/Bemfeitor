@@ -1,9 +1,9 @@
 ﻿using System;
-using BenfeitorApi.Mappers;
-using BenfeitorApi.Models;
-using Repository.Interfaces;
+using MundiPagg.Benfeitor.BenfeitorApi.Mappers;
+using MundiPagg.Benfeitor.BenfeitorApi.Models;
+using MundiPagg.Benfeitor.Repository.Interfaces;
 
-namespace BenfeitorApi.Services
+namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 {
     public class PersonService : IPersonService
     {

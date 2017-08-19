@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repository.Enums
+namespace MundiPagg.Benfeitor.Repository.Enums
 {
     public enum LoanStatusEnum
     {

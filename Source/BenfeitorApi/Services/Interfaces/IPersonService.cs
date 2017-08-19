@@ -1,7 +1,7 @@
 ﻿using System;
-using BenfeitorApi.Models;
+using MundiPagg.Benfeitor.BenfeitorApi.Models;
 
-namespace BenfeitorApi.Services
+namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 {
     public interface IPersonService
     {

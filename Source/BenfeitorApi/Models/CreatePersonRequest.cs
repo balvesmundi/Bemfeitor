@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BenfeitorApi.Models
+namespace MundiPagg.Benfeitor.BenfeitorApi.Models
 {
 
     public class CreatePersonRequest

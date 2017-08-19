@@ -1,8 +1,8 @@
 ﻿using System;
-using BenfeitorApi.Models;
-using Repository.Entities;
+using MundiPagg.Benfeitor.BenfeitorApi.Models;
+using MundiPagg.Benfeitor.Repository.Entities;
 
-namespace BenfeitorApi.Mappers
+namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
 {
     public static class PersonMapper
     {

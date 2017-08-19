@@ -1,7 +1,7 @@
 ﻿using System;
-using Repository.Entities;
+using MundiPagg.Benfeitor.Repository.Entities;
 
-namespace Repository.Interfaces
+namespace MundiPagg.Benfeitor.Repository.Interfaces
 {
     public interface IPersonRepository
     {

@@ -1,4 +1,4 @@
-﻿namespace Repository.Entities
+﻿namespace MundiPagg.Benfeitor.Repository.Entities
 {
     public class Document
     {
