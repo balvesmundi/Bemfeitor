@@ -128,7 +128,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
                 WorkPhone = person.WorkPhone,
                 BirthDate = person.BirthDate,
                 BalanceInCents = person.BalanceInCents,
-                LoanTypeEnum = loanTypeEnum,
+                LoanTypeEnum = loanTypeEnum.ToString(),
                 LoanInCents = person.LoanInCents,
                 DueDate = person.DueDate,
                 TaxPerDay = person.TaxPerDay,
@@ -150,7 +150,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
                 TwitterId = person.TwitterId,
                 GenderEnum = person.GenderEnum,
                 BirthDate = person.BirthDate,
-                LoanTypeEnum = loanTypeEnum,
+                LoanTypeEnum = loanTypeEnum.ToString(),
                 LoanInCents = person.LoanInCents,
                 DueDate = person.DueDate,
                 TaxPerDay = person.TaxPerDay
