@@ -4,6 +4,7 @@ using Repository.Entities;
 using BenfeitorApi.Models.Request;
 using BenfeitorApi.Models.Response;
 using System.Collections.Generic;
+using BenfeitorApi.Models.Enums;
 
 namespace BenfeitorApi.Mappers
 {
@@ -74,12 +75,63 @@ namespace BenfeitorApi.Mappers
 
         public static PersonResponse MapPersonResponse(Person person)
         {
-            throw new NotImplementedException();
+            LoanTypeEnum loanTypeEnum = LoanTypeEnum.Undefined;
+            Enum.TryParse<LoanTypeEnum>(person.LoanTypeEnum, out loanTypeEnum);
+            
+            return new PersonResponse()
+            {
+                PersonKey = person.PersonKey,
+                CreateDate = person.CreateDate,
+                Email = person.Email,
+                Name = person.Name,
+                FacebookId = person.FacebookId,
+                TwitterId = person.TwitterId,
+                GenderEnum = person.GenderEnum,
+                MobilePhone = person.MobilePhone,
+                HomePhone = person.HomePhone,
+                WorkPhone = person.WorkPhone,
+                BirthDate = person.BirthDate,
+                BalanceInCents = person.BalanceInCents,
+                LoanTypeEnum = loanTypeEnum,
+                LoanInCents = person.LoanInCents,
+                DueDate = person.DueDate,
+                TaxPerDay = person.TaxPerDay,
+                Address = MapAddressResponse(person.Address),
+                Documents = MapDocumentsResponse(person.Documents)
+            };
         }
 
         public static AddressResponse MapAddressResponse(Address address)
         {
-            throw new NotImplementedException();
+            if (address == null) return null;
+
+            return new AddressResponse() {
+                City = address.City,
+                Complement = address.Complement,
+                Country = address.Country,
+                District = address.District,
+                Number = address.Number,
+                State = address.State,
+                ZipCode = address.ZipCode,
+                Street = address.Street
+            };
+        }
+
+        public static List<DocumentResponse> MapDocumentsResponse(List<Document> documents)
+        {
+            if (documents == null) return null;
+
+            var docs = new List<DocumentResponse>();
+
+            foreach(var doc in documents)
+            {
+                docs.Add(new DocumentResponse() {
+                    DocumentNumber = doc.DocumentNumber,
+                    DocumentType = doc.DocumentType
+                });
+            }
+
+            return docs;
         }
     }
 }

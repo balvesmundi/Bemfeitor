@@ -19,7 +19,7 @@ namespace BenfeitorApi.Models.Response
         public string MobilePhone { get; set; }
         public string HomePhone { get; set; }
         public string WorkPhone { get; set; }
-        public DateTime BirthDate { get; set; }
+        public DateTime? BirthDate { get; set; }
 
         public long? BalanceInCents { get; set; }
         public LoanTypeEnum LoanTypeEnum { get; set; }

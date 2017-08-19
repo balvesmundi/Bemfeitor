@@ -29,9 +29,22 @@ namespace BenfeitorApi.Mappers
 
         public static LoanResponse MapLoanHistoryResponse(LoanHistory loanHistory)
         {
+            LoanStatusEnum loanStatusEnum = LoanStatusEnum.Undefined;
+            Enum.TryParse<LoanStatusEnum>(loanHistory.LoanStatusEnum, out loanStatusEnum);
+
             return new LoanResponse()
             {
+                LoanHistoryId = loanHistory.LoanHistoryId,
+                LoanStatusEnum = loanStatusEnum,
+                
+                AmountInCents = loanHistory.AmountInCents,
+                DueDate = loanHistory.DueDate,
+                TaxPerDay = loanHistory.TaxPerDay,
 
+                LenderGrade = loanHistory.LenderGrade,
+                BorrowerGrade = loanHistory.BorrowerGrade,
+                CommentToBorrower = loanHistory.CommentToBorrower,
+                CommentToLender = loanHistory.CommentToLender
             };
         }
     }
