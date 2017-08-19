@@ -37,5 +37,7 @@ namespace Repository.Entities
         public DateTime? DueDate { get; set; }
 
         public decimal? TaxPerDay { get; set; }
+
+        public Address Address { get; set; }
     }
 }

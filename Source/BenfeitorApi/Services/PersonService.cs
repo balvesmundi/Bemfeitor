@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+using BenfeitorApi.Mappers;
 using BenfeitorApi.Models;
 using Repository.Interfaces;
 
@@ -19,19 +17,20 @@ namespace BenfeitorApi.Services
 
         }
 
-        public PersonResponse CreateAccount(CreatePersonRequest request)
+        public PersonResponse CreatePerson(CreatePersonRequest request)
         {
-            // TODO: Create account
+            var person = PersonMapper.MapPerson(request);
 
-            var id = "1";
+            this._personRepository.CreatePerson(person);
 
-            return this.GetAccount(id);
+            return PersonMapper.MapPersonResponse(person);
         }
 
-        public PersonResponse GetAccount(string id)
+        public PersonResponse GetPerson(Guid personKey)
         {
+            var person = this._personRepository.GetPerson(personKey);
 
-            throw new NotImplementedException();
+            return PersonMapper.MapPersonResponse(person);
         }
     }
 }
