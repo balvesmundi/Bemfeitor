@@ -7,7 +7,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Models.Enums
 {
     public enum TypeSearch
     {
-        FindingBorrowers,
-        FindingLenders
+        Lender,
+        Borrower
     }
 }

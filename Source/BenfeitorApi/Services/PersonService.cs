@@ -143,7 +143,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
             }
             if (request.AmountInCents.HasValue)
             {
-                if (request.TypeSearch == Models.Enums.TypeSearch.FindingBorrowers) // valor máximo
+                if (request.TypeSearch == TypeSearch.Lender) // valor máximo
                     filter &= new DirectSpecification<Person>(p => p.LoanInCents <= request.AmountInCents);
                 else // valor mínimo
                     filter &= new DirectSpecification<Person>(p => p.LoanInCents >= request.AmountInCents);
