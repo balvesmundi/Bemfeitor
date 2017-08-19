@@ -76,6 +76,17 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
 
             return Ok();
         }
+        
+        [HttpPost]
+        [Route("accounts")]
+        public IHttpActionResult Search(SearchRequest request)
+        {
+
+            var response = this._personService.CreatePerson(request);
+
+            return Ok(response);
+        }
+
 
         protected override void Dispose(bool disposing)
         {
