@@ -14,11 +14,13 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
     public class LoanService : ILoanService
     {
         private ILoanRepository _loanRepository;
+        private IPersonRepository _personRepository;
 
-        public LoanService(ILoanRepository loanRepository)
+        public LoanService(ILoanRepository loanRepository, IPersonRepository personRepository)
         {
 
             this._loanRepository = loanRepository;
+            this._personRepository = personRepository;
         }
 
         public LoanResponse CreateLoan(CreateLoanRequest request, long borrowerId, long lenderId)
@@ -43,6 +45,14 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
             var loan = this._loanRepository.FindOne(p => p.LoanHistoryId == id);
 
             return LoanMapper.MapLoanHistoryResponse(loan);
+        }
+
+        public List<LoanResponse> GetMyLoans(Guid personKey)
+        {
+            var personId = this._personRepository.FindOne(p => p.PersonKey == personKey)?.PersonId;
+            var loans = this._loanRepository.FindAll(p => p.PersonBorrowerId == personId || p.PersonLenderId == personId).ToList();
+
+            return LoanMapper.MapLoanHistoryResponse(loans);
         }
 
         #region IDisposable Members

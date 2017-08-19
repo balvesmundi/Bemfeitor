@@ -47,5 +47,17 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
                 CommentToLender = loanHistory.CommentToLender
             };
         }
+
+        public static List<LoanResponse> MapLoanHistoryResponse(List<LoanHistory> loanHistories)
+        {
+            if (loanHistories == null) return null;
+
+            var loanResponses = new List<LoanResponse>();
+            foreach(var loan in loanHistories)
+            {
+                loanResponses.Add(MapLoanHistoryResponse(loan));
+            }
+            return loanResponses;
+        }
     }
 }

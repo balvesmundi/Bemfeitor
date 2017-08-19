@@ -37,11 +37,21 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
         }
 
         [HttpGet]
-        [Route("loans/{id}")]
+        [Route("loans/{loanHistoryId}")]
         public IHttpActionResult GetLoan(long loanHistoryId)
         {
 
             var response = _loanService.GetLoan(loanHistoryId);
+
+            return Ok(response);
+        }
+
+        [HttpGet]
+        [Route("loans/{personKey}")]
+        public IHttpActionResult GetMyLoans(Guid personKey)
+        {
+
+            var response = _loanService.GetMyLoans(personKey);
 
             return Ok(response);
         }

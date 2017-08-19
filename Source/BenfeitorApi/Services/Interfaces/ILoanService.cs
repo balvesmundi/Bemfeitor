@@ -1,6 +1,7 @@
 ﻿using System;
 using MundiPagg.Benfeitor.BenfeitorApi.Models.Request;
 using MundiPagg.Benfeitor.BenfeitorApi.Models.Response;
+using System.Collections.Generic;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 {
@@ -8,5 +9,6 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
     {
         LoanResponse CreateLoan(CreateLoanRequest request, long borrowerId, long lenderId);
         LoanResponse GetLoan(long id);
+        List<LoanResponse> GetMyLoans(Guid personKey);
     }
 }
