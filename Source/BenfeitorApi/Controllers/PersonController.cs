@@ -36,5 +36,32 @@ namespace BenfeitorApi.Controllers
 
             return Ok(response);
         }
+
+        [HttpPatch]
+        [Route("accounts")]
+        public IHttpActionResult GetAccount(CreatePersonRequest request)
+        {
+
+            var response = this._personService.PatchPerson(request);
+
+            return Ok(response);
+        }
+
+        [HttpDelete]
+        [Route("accounts/{id}")]
+        public IHttpActionResult DeleteAccount(Guid personKey)
+        {
+
+            try
+            {
+                this._personService.DeletePerson(personKey);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest();
+            }
+
+            return Ok();
+        }
     }
 }

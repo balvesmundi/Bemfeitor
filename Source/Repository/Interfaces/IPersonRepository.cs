@@ -11,5 +11,9 @@ namespace Repository.Interfaces
         Person GetPerson(Guid personKey);
 
         long GetPersonId(Guid personKey);
+
+        Person PatchPerson(Person personRequest);
+
+        void DeletePerson(Guid personKey);
     }
 }

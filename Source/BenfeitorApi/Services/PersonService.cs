@@ -27,6 +27,15 @@ namespace BenfeitorApi.Services
             return PersonMapper.MapPersonResponse(person);
         }
 
+        public PersonResponse PatchPerson(CreatePersonRequest request)
+        {
+            var personRequest = PersonMapper.MapPerson(request);
+
+            var person = this._personRepository.PatchPerson(personRequest);
+
+            return PersonMapper.MapPersonResponse(person);
+        }
+
         public PersonResponse GetPerson(Guid personKey)
         {
             var person = this._personRepository.GetPerson(personKey);
@@ -37,6 +46,11 @@ namespace BenfeitorApi.Services
         public long GetPersonId(Guid personKey)
         {
             return this._personRepository.GetPersonId(personKey);
+        }
+
+        public void DeletePerson(Guid personKey)
+        {
+            this._personRepository.DeletePerson(personKey);
         }
     }
 }
