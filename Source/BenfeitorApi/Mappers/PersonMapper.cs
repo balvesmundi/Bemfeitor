@@ -133,7 +133,9 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
                 DueDate = person.DueDate,
                 TaxPerDay = person.TaxPerDay,
                 Address = PersonMapper.MapAddressResponse(person.Addresses?.FirstOrDefault()),
-                Documents = PersonMapper.MapDocumentsResponse(person.Documents)
+                Documents = PersonMapper.MapDocumentsResponse(person.Documents),
+                CountAsBorrower = person.CountAsBorrower,
+                CountAsLender = person.CountAsLender
             };
         }
 
@@ -153,7 +155,9 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
                 LoanTypeEnum = loanTypeEnum.ToString(),
                 LoanInCents = person.LoanInCents,
                 DueDate = person.DueDate,
-                TaxPerDay = person.TaxPerDay
+                TaxPerDay = person.TaxPerDay,
+                CountAsLender = person.CountAsLender,
+                CountAsBorrower = person.CountAsBorrower
             };
         }
 

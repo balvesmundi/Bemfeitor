@@ -136,7 +136,9 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 
             Specification<Person> filter = new DirectSpecification<Person>(p => p.IsEnabled == true);
 
-            if (string.IsNullOrWhiteSpace(request.Name) == false) filter &= new DirectSpecification<Person>(p => p.Name == request.Name && p.LoanTypeEnum == request.TypeSearch.ToString());
+            if (string.IsNullOrWhiteSpace(request.Name) == false) filter &= new DirectSpecification<Person>(p => p.Name.Contains(request.Name));
+            filter &= new DirectSpecification<Person>(p => p.LoanTypeEnum == request.TypeSearch.ToString());
+
             if (request.MininumGrade.HasValue)
             {
                 filter &= new DirectSpecification<Person>(p => p.CountGrade > 0 ? (double)p.SumGrade / p.CountGrade >= request.MininumGrade : 0 >= request.MininumGrade);
