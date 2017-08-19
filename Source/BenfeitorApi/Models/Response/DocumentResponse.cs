@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace BenfeitorApi.Models.Response
+namespace MundiPagg.Benfeitor.BenfeitorApi.Models.Response
 {
     public class DocumentResponse
     {

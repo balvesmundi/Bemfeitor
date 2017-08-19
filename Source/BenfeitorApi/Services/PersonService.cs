@@ -3,6 +3,8 @@ using System.Transactions;
 using MundiPagg.Benfeitor.BenfeitorApi.Mappers;
 using MundiPagg.Benfeitor.BenfeitorApi.Models;
 using MundiPagg.Benfeitor.BenfeitorApi.Models.Request;
+using MundiPagg.Benfeitor.BenfeitorApi.Models.Response;
+using MundiPagg.Benfeitor.BenfeitorApi.Seedwork.Exceptions;
 using MundiPagg.Benfeitor.Domain.Aggregates.Repositories;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi.Services
@@ -22,26 +24,31 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 
         public PersonResponse CreatePerson(CreatePersonRequest request)
         {
-            try
+            if (string.IsNullOrWhiteSpace(request.Username))
             {
-                var person = PersonMapper.MapPerson(request);
-
-                using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted }))
-                {
-                    this._personRepository.Add(person);
-
-                    this._personRepository.UnitOfWork.Commit();
-
-
-                    scope.Complete();
-                }
-
-                return PersonMapper.MapPersonResponse(person);
+                throw new BadRequestException("Invalid username.");
             }
-            catch (Exception ex)
+
+            var person = this._personRepository.FindOne(p => p.Username == request.Username);
+            if (person != null)
             {
-                throw;
+                throw new BadRequestException("The specified user already exists.");
             }
+
+            person = PersonMapper.MapPerson(request);
+
+            using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted }))
+            {
+                this._personRepository.Add(person);
+
+                this._personRepository.UnitOfWork.Commit();
+
+
+                scope.Complete();
+            }
+
+            return PersonMapper.MapPersonResponse(person);
+
         }
 
         public PersonResponse UpdatePerson(Guid personKey, CreatePersonRequest request)

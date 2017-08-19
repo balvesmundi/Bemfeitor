@@ -2,6 +2,7 @@
 using System.Web.Http;
 using MundiPagg.Benfeitor.BenfeitorApi.Models;
 using MundiPagg.Benfeitor.BenfeitorApi.Models.Request;
+using MundiPagg.Benfeitor.BenfeitorApi.Seedwork.Exceptions;
 using MundiPagg.Benfeitor.BenfeitorApi.Services;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
@@ -21,10 +22,20 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
         [Route("accounts")]
         public IHttpActionResult CreateAccount(CreatePersonRequest request)
         {
+            try
+            {
+                var response = this._personService.CreatePerson(request);
 
-            var response = this._personService.CreatePerson(request);
-
-            return Ok(response);
+                return Ok(response);
+            }
+            catch (BadRequestException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError();
+            }
         }
 
         [HttpGet]
@@ -64,6 +75,14 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
             }
 
             return Ok();
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+
+            this._personService.Dispose();
+
+            base.Dispose(disposing);
         }
     }
 }

@@ -4,9 +4,8 @@ using MundiPagg.Benfeitor.BenfeitorApi.Models.Response;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 {
-    public interface ILoanService : IDisposable
+    public interface IAuthenticationService : IDisposable
     {
-        LoanResponse CreateLoan(CreateLoanRequest request, long borrowerId, long lenderId);
-        LoanResponse GetLoan(long id);
+        AuthenticateResponse Authenticate(AuthenticateRequest request);
     }
 }

@@ -45,5 +45,14 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
 
             return Ok(response);
         }
+
+        protected override void Dispose(bool disposing)
+        {
+
+            this._loanService.Dispose();
+            this._personService.Dispose();
+
+            base.Dispose(disposing);
+        }
     }
 }

@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using BenfeitorApi.Models.Enums;
 using BenfeitorApi.Models.Request;
-using BenfeitorApi.Models.Response;
 using Domain.Aggregates.Entities;
 using MundiPagg.Benfeitor.BenfeitorApi.Models;
 using MundiPagg.Benfeitor.BenfeitorApi.Models.Request;
+using MundiPagg.Benfeitor.BenfeitorApi.Models.Response;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
 {
@@ -37,7 +37,10 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
                 LoanInCents = request.LoanInCents,
                 LoanTypeEnum = request.LoanTypeEnum.ToString(),
                 TaxPerDay = request.TaxPerDay,
-                Documents = PersonMapper.MapDocuments(request.Documents)
+                Documents = PersonMapper.MapDocuments(request.Documents),
+                IsEnabled = true,
+                Username = request.Username,
+                Password = request.Password
             };
         }
 
@@ -109,7 +112,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
         {
             LoanTypeEnum loanTypeEnum = LoanTypeEnum.Undefined;
             Enum.TryParse<LoanTypeEnum>(person.LoanTypeEnum, out loanTypeEnum);
-            
+
             return new PersonResponse()
             {
                 PersonKey = person.PersonKey,
@@ -137,7 +140,8 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
         {
             if (address == null) return null;
 
-            return new AddressResponse() {
+            return new AddressResponse()
+            {
                 City = address.City,
                 Complement = address.Complement,
                 Country = address.Country,
@@ -155,9 +159,10 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
 
             var docs = new List<DocumentResponse>();
 
-            foreach(var doc in documents)
+            foreach (var doc in documents)
             {
-                docs.Add(new DocumentResponse() {
+                docs.Add(new DocumentResponse()
+                {
                     DocumentNumber = doc.DocumentNumber,
                     DocumentType = doc.DocumentType
                 });
