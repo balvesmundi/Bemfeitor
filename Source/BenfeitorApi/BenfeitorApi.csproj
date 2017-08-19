@@ -114,6 +114,7 @@
     <Compile Include="Mappers\LoanMapper.cs" />
     <Compile Include="Mappers\PersonMapper.cs" />
     <Compile Include="Models\Request\CreateDocumentRequest.cs" />
+    <Compile Include="Models\Request\SearchRequest.cs" />
     <Compile Include="Models\Response\AddressResponse.cs" />
     <Compile Include="Models\Request\CreateAddressRequest.cs" />
     <Compile Include="Models\Request\CreateLoanRequest.cs" />
