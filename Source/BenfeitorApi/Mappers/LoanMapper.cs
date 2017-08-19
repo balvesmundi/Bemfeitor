@@ -12,7 +12,7 @@ namespace BenfeitorApi.Mappers
 {
     public static class LoanMapper
     {
-        public static LoanHistory MapLoanHistory(CreateLoanRequest request)
+        public static LoanHistory MapLoanHistory(CreateLoanRequest request, long borrowerId, long lenderId)
         {
 
             return new LoanHistory()
@@ -22,8 +22,8 @@ namespace BenfeitorApi.Mappers
                 LoanStatusEnum = LoanStatusEnum.PendingLenderMoney.ToString(),
                 TaxPerDay = request.TaxPerDay,
                 CreateDate = DateTime.UtcNow,
-                PersonBorrowerId = request.PersonBorrowerId,
-                PersonLenderId = request.PersonLenderId
+                PersonBorrowerId = borrowerId,
+                PersonLenderId = lenderId
             };
         }
 

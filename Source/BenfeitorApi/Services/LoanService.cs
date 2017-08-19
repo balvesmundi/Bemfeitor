@@ -20,10 +20,9 @@ namespace BenfeitorApi.Services
             this._loanRepository = loanRepository;
         }
 
-        public LoanResponse CreateLoan(CreateLoanRequest request)
+        public LoanResponse CreateLoan(CreateLoanRequest request, long borrowerId, long lenderId)
         {
-            // TODO: Create loan
-            var loanHistory = LoanMapper.MapLoanHistory(request);
+            var loanHistory = LoanMapper.MapLoanHistory(request, borrowerId, lenderId);
 
             this._loanRepository.CreateLoanHistory(loanHistory);
 
@@ -32,7 +31,9 @@ namespace BenfeitorApi.Services
 
         public LoanResponse GetLoan(long id)
         {
-            throw new NotImplementedException();
+            var loan = this._loanRepository.GetLoanHistory(id);
+
+            return LoanMapper.MapLoanHistoryResponse(loan);
         }
     }
 }

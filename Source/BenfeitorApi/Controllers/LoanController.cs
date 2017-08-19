@@ -13,20 +13,23 @@ namespace BenfeitorApi.Controllers
     {
 
         private ILoanService _loanService;
+        private IPersonService _personService;
 
-        public LoanController(ILoanService loanService)
+        public LoanController(ILoanService loanService, IPersonService personService)
         {
 
             this._loanService = loanService;
-
+            this._personService = personService;
         }
+        
 
         [HttpPost]
         [Route("loan")]
         public IHttpActionResult CreateLoan(CreateLoanRequest request)
         {
-            
-            var response = _loanService.CreateLoan(request);
+            var borrowerId = _personService.GetPersonId(request.PersonBorrowerKey);
+            var lenderId = _personService.GetPersonId(request.PersonLenderKey);
+            var response = _loanService.CreateLoan(request, borrowerId, lenderId);
 
             return Ok(response);
         }

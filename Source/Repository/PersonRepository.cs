@@ -15,5 +15,10 @@ namespace Repository
         {
             throw new NotImplementedException();
         }
+
+        public long GetPersonId(Guid personKey)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
