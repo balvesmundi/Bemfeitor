@@ -86,6 +86,7 @@ namespace MundiPagg.Benfeitor.Infrastructure.Data {
             //Add entity configurations in a structured way using 'TypeConfiguration’ classes
             modelBuilder.Configurations.Add(new PersonMapping());
             modelBuilder.Configurations.Add(new AddressMapping());
+            modelBuilder.Configurations.Add(new DocumentMapping());
             modelBuilder.Configurations.Add(new LoanMapping());
         }
 

@@ -86,7 +86,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
                 if (request.Documents != null) person.Documents = PersonMapper.MapDocuments(request.Documents);
                 if (request.Username != null) person.Username = request.Username;
                 if (request.Password != null) person.Password = request.Password;
-                
+
                 this._personRepository.UnitOfWork.Commit();
 
                 scope.Complete();
@@ -97,7 +97,9 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 
         public PersonResponse GetPerson(Guid personKey)
         {
-            var person = this._personRepository.FindOne(p => p.PersonKey == personKey, include => include.Addresses);
+            var person = this._personRepository.FindOne(p => p.PersonKey == personKey,
+                include => include.Addresses,
+                include => include.Documents);
 
             return PersonMapper.MapPersonResponse(person);
         }

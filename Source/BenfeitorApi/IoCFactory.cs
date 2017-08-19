@@ -57,6 +57,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi
             // Repositories
             _container.RegisterType<IPersonRepository, PersonRepository>();
             _container.RegisterType<IAddressRepository, AddressRepository>();
+            _container.RegisterType<IDocumentRepository, DocumentRepository>();
             _container.RegisterType<ILoanRepository, LoanRepository>();
 
             // Application Services

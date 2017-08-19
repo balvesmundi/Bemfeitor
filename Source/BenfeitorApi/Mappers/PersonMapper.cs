@@ -133,7 +133,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
                 DueDate = person.DueDate,
                 TaxPerDay = person.TaxPerDay,
                 Address = PersonMapper.MapAddressResponse(person.Addresses?.FirstOrDefault()),
-                Documents = MapDocumentsResponse(person.Documents)
+                Documents = PersonMapper.MapDocumentsResponse(person.Documents)
             };
         }
 

@@ -48,6 +48,7 @@
     <Compile Include="Aggregates\Entities\LoanHistory.cs" />
     <Compile Include="Aggregates\Entities\Person.cs" />
     <Compile Include="Aggregates\Enums\LoanStatusEnum.cs" />
+    <Compile Include="Aggregates\Repositories\IDocumentRepository.cs" />
     <Compile Include="Aggregates\Repositories\ILoanRepository.cs" />
     <Compile Include="Aggregates\Repositories\IAddressRepository.cs" />
     <Compile Include="Aggregates\Repositories\IPersonRepository.cs" />
