@@ -1,4 +1,5 @@
-﻿using MundiPagg.Benfeitor.BenfeitorApi.Models.Enums;
+﻿using BenfeitorApi.Models.Enums;
+using MundiPagg.Benfeitor.BenfeitorApi.Models.Enums;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,8 +10,9 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Models.Request
 {
     public class SearchRequest
     {
+        //Se Lender, é pq sou Borrower e estou procurando Lender; vice-versa.
         [Required]
-        public TypeSearch TypeSearch { get; set; }
+        public LoanTypeEnum TypeSearch { get; set; }
 
         public TypeOrder TypeOrder { get; set; }
 

@@ -136,17 +136,17 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 
             Specification<Person> filter = new DirectSpecification<Person>(p => p.IsEnabled == true);
 
-            if (string.IsNullOrWhiteSpace(request.Name) == false) filter &= new DirectSpecification<Person>(p => p.Name == request.Name);
+            if (string.IsNullOrWhiteSpace(request.Name) == false) filter &= new DirectSpecification<Person>(p => p.Name == request.Name && p.LoanTypeEnum == request.TypeSearch.ToString());
             if (request.MininumGrade.HasValue)
             {
                 filter &= new DirectSpecification<Person>(p => p.CountGrade > 0 ? (double)p.SumGrade / p.CountGrade >= request.MininumGrade : 0 >= request.MininumGrade);
             }
             if (request.AmountInCents.HasValue)
             {
-                if (request.TypeSearch == TypeSearch.Lender) // valor máximo
-                    filter &= new DirectSpecification<Person>(p => p.LoanInCents <= request.AmountInCents);
-                else // valor mínimo
+                if (request.TypeSearch == LoanTypeEnum.Lender) // valor mínimo
                     filter &= new DirectSpecification<Person>(p => p.LoanInCents >= request.AmountInCents);
+                else // valor máximo
+                    filter &= new DirectSpecification<Person>(p => p.LoanInCents <= request.AmountInCents);
             }
             if (request.HasBorrowed.HasValue && request.HasBorrowed == true)
             {
@@ -156,7 +156,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
             {
                 filter &= new DirectSpecification<Person>(p => p.CountAsLender > 0);
             }
-
+            
             #endregion
 
             var people = _personRepository.FindAll(filter).ToList();
