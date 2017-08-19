@@ -7,8 +7,8 @@
     <ProjectGuid>{1339482C-FFCE-480A-9F4A-B748AF5407FC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Domain</RootNamespace>
-    <AssemblyName>Domain</AssemblyName>
+    <RootNamespace>MundiPagg.BenfeitorDomain</RootNamespace>
+    <AssemblyName>MundiPagg.BenfeitorDomain</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
