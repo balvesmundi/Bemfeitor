@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Text;
-using System.Web;
 using System.Web.Http;
 using System.Web.Http.Controllers;
-using System.Net.Http;
-using System.Net;
-using System.Configuration;
 using MundiPagg.Benfeitor.BenfeitorApi.Services;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi.Attributes
@@ -53,15 +48,6 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Attributes
             var controller = actionContext.ControllerContext.ControllerDescriptor.ControllerName;
             var action = actionContext.ActionDescriptor.ActionName;
 
-            //var route = actionContext.RequestContext.RouteData;
-            //var routeContainsCustomerId = route.Values.ContainsKey("customerId");
-
-            //var queryString = actionContext.Request.GetQueryNameValuePairs().ToDictionary(x => x.Key, x => x.Value);
-            //var queryStringContainsCustomerId = queryString.ContainsKey("customer_id");
-
-            //if (ActionAvailable(action, controller) == false) return false;
-            //if (routeContainsCustomerId == false && queryStringContainsCustomerId == false) return false;
-
             try
             {
 
@@ -71,12 +57,6 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Attributes
                     var person = service.GetPersonByBearerToken(header);
 
                     if (person == null) { return false; }
-
-                    //var id = (routeContainsCustomerId) ? route.Values["customerId"] as string : queryString["customer_id"];
-
-                    //if (token.Status.Equals("ACTIVE", StringComparison.InvariantCultureIgnoreCase) == false) return false;
-                    //if (token.Customer.Id.Equals(id, StringComparison.InvariantCultureIgnoreCase) == false) return false;
-                    //if (token.Account.Status.Equals("ACTIVE", StringComparison.InvariantCultureIgnoreCase) == false) return false;
 
                     actionContext.Request.Properties.Add("Person", person);
 
