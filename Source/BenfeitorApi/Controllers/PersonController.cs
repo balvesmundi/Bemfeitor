@@ -76,30 +76,22 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
 
             return Ok();
         }
-        
-        //[HttpPost]
-        //[Route("accounts")]
-        //public IHttpActionResult Search(SearchRequest request)
-        //{
 
-        //    var response = this._personService.CreatePerson(request);
-
-        //    return Ok(response);
-        //}
-
-
-        protected override void Dispose(bool disposing)
         [HttpPost]
         [Route("accounts/{personKey}/search")]
         public IHttpActionResult Search(Guid personKey, SearchRequest request)
         {
-
-            this._personService.Dispose();
-
-            base.Dispose(disposing);
+            
             var response = this._personService.Search(personKey, request);
             
             return Ok(response);
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            this._personService.Dispose();
+
+            base.Dispose(disposing);
         }
     }
 }
