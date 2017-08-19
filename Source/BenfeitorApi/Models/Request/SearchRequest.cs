@@ -14,7 +14,6 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Models.Request
 
         public TypeOrder TypeOrder { get; set; }
 
-
         public string Name { get; set; }
 
         public byte? MininumGrade { get; set; }
