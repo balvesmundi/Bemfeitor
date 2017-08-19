@@ -24,5 +24,13 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
                 PersonLenderId = request.PersonLenderId
             };
         }
+
+        public static LoanResponse MapLoanHistoryResponse(LoanHistory loanHistory)
+        {
+            return new LoanResponse()
+            {
+
+            };
+        }
     }
 }

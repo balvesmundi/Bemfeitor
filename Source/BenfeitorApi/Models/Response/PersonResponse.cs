@@ -1,9 +1,10 @@
-﻿using System;
+﻿using BenfeitorApi.Models.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace MundiPagg.Benfeitor.BenfeitorApi.Models
+namespace MundiPagg.Benfeitor.BenfeitorApi.Models.Request
 {
     public class PersonResponse
     {
@@ -20,6 +21,14 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Models
         public string WorkPhone { get; set; }
         public DateTime? BirthDate { get; set; }
 
+        public long? BalanceInCents { get; set; }
+        public LoanTypeEnum LoanTypeEnum { get; set; }
+        public long? LoanInCents { get; set; }
+        public DateTime? DueDate { get; set; }
+        public decimal? TaxPerDay { get; set; }
+
         public AddressResponse Address { get; set; }
+
+        public List<DocumentResponse> Documents { get; set; }
     }
 }

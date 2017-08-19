@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MundiPagg.Benfeitor.Repository.Entities
 {
@@ -39,5 +40,7 @@ namespace MundiPagg.Benfeitor.Repository.Entities
         public decimal? TaxPerDay { get; set; }
 
         public Address Address { get; set; }
+
+        public List<Document> Documents { get; set; } 
     }
 }

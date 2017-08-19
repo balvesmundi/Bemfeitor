@@ -10,6 +10,6 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
     public interface ILoanService
     {
         LoanResponse CreateLoan(CreateLoanRequest request);
-        LoanResponse GetLoan(string id);
+        LoanResponse GetLoan(long id);
     }
 }

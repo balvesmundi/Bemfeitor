@@ -9,6 +9,14 @@ namespace MundiPagg.Benfeitor.Repository
 {
     public class LoanRepository : ILoanRepository
     {
+        public void CreateLoanHistory(LoanHistory loanHistory)
+        {
+            throw new NotImplementedException();
+        }
 
+        public LoanHistory GetLoanHistory(long loanHistoryId)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using BenfeitorApi.Models;
+using BenfeitorApi.Models.Request;
+using BenfeitorApi.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -24,12 +27,10 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
         [Route("loan")]
         public IHttpActionResult CreateLoan(CreateLoanRequest request)
         {
+            
+            var response = _loanService.CreateLoan(request);
 
-            // TODO: Create loan
-            //_loanService.CreateLoan(
-
-
-            return this.GetLoan(new long());
+            return Ok(response);
         }
 
         [HttpGet]
@@ -37,11 +38,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
         public IHttpActionResult GetLoan(long loanHistoryId)
         {
 
-            var response = new LoanResponse()
-            {
-                
-                //Name = request.Name
-            };
+            var response = _loanService.GetLoan(loanHistoryId);
 
             return Ok(response);
         }
