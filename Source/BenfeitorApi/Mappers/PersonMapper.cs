@@ -110,6 +110,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
 
         public static PersonResponse MapPersonResponse(Person person)
         {
+            if (person == null) { return null; }
             LoanTypeEnum loanTypeEnum = LoanTypeEnum.Undefined;
             Enum.TryParse<LoanTypeEnum>(person.LoanTypeEnum, out loanTypeEnum);
 

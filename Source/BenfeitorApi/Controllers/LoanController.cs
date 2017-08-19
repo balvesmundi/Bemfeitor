@@ -8,9 +8,11 @@ using System.Web.Http;
 using MundiPagg.Benfeitor.BenfeitorApi.Models;
 using MundiPagg.Benfeitor.BenfeitorApi.Services;
 using MundiPagg.Benfeitor.BenfeitorApi.Models.Request;
+using MundiPagg.Benfeitor.BenfeitorApi.Attributes;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
 {
+    [ActionAuth]
     public class LoanController : ApiController
     {
 

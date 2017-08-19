@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Web.Http;
+using MundiPagg.Benfeitor.BenfeitorApi.Attributes;
 using MundiPagg.Benfeitor.BenfeitorApi.Models;
 using MundiPagg.Benfeitor.BenfeitorApi.Models.Request;
+using MundiPagg.Benfeitor.BenfeitorApi.Models.Response;
 using MundiPagg.Benfeitor.BenfeitorApi.Seedwork.Exceptions;
 using MundiPagg.Benfeitor.BenfeitorApi.Services;
 
@@ -39,7 +41,27 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
         }
 
         [HttpGet]
+        [Route("accounts")]
+        [ActionAuth]
+        public IHttpActionResult GetMyAccount()
+        {
+            try
+            {
+                var person = this.Request.Properties["Person"] as PersonResponse;
+
+                var response = this._personService.GetPerson(person.PersonKey);
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+        [HttpGet]
         [Route("accounts/{personKey}")]
+        [ActionAuth]
         public IHttpActionResult GetAccount(Guid personKey)
         {
             try
@@ -57,6 +79,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
 
         [HttpGet]
         [Route("accounts/other/{otherPersonKey}")]
+        [ActionAuth]
         public IHttpActionResult GetOtherAccount(Guid otherPersonKey)
         {
 
@@ -67,6 +90,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
 
         [HttpPatch]
         [Route("accounts")]
+        [ActionAuth]
         public IHttpActionResult UpdateAccount(CreatePersonRequest request)
         {
 
@@ -79,6 +103,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
 
         [HttpDelete]
         [Route("accounts/{personKey}")]
+        [ActionAuth]
         public IHttpActionResult DeleteAccount(Guid personKey)
         {
 
@@ -96,6 +121,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
 
         [HttpPost]
         [Route("accounts/{personKey}/search")]
+        [ActionAuth]
         public IHttpActionResult Search(Guid personKey, SearchRequest request)
         {
 

@@ -7,5 +7,6 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
     public interface IAuthenticationService : IDisposable
     {
         AuthenticateResponse Authenticate(AuthenticateRequest request);
+        PersonResponse GetPersonByBearerToken(string bearer);
     }
 }

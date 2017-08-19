@@ -47,6 +47,14 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
             }
         }
 
+        public PersonResponse GetPersonByBearerToken(string bearer)
+        {
+
+            var person = this._personRepository.FindOne(p => p.BearerToken == bearer);
+
+            return PersonMapper.MapPersonResponse(person);
+        }
+
         #region IDisposable Members
 
         public void Dispose()
