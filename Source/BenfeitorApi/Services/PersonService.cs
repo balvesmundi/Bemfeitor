@@ -11,6 +11,7 @@ using MundiPagg.Benfeitor.Domain.Seedwork.Specifications;
 using Domain.Aggregates.Entities;
 using System.Linq;
 using BenfeitorApi.Models.Enums;
+using MundiPagg.Benfeitor.BenfeitorApi.Models.Enums;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 {
@@ -138,7 +139,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
             if (string.IsNullOrWhiteSpace(request.Name) == false) filter &= new DirectSpecification<Person>(p => p.Name == request.Name);
             if (request.MininumGrade.HasValue)
             {
-                filter &= new DirectSpecification<Person>(p => (double)p.SumGrade / p.CountGrade > request.MininumGrade);
+                filter &= new DirectSpecification<Person>(p => p.CountGrade > 0 ? (double)p.SumGrade / p.CountGrade >= request.MininumGrade : 0 >= request.MininumGrade);
             }
             if (request.AmountInCents.HasValue)
             {
@@ -159,6 +160,21 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
             #endregion
 
             var people = _personRepository.FindAll(filter).ToList();
+
+            // Ordernação
+            switch (request.TypeOrder)
+            {
+                case TypeOrder.AmountInCents:
+                    people = people.OrderBy(p => p.LoanInCents).ToList();
+                    break;
+                case TypeOrder.Name:
+                    people = people.OrderBy(p => p.Name).ToList();
+                    break;
+                case TypeOrder.Grade:
+                default:
+                    people = people.OrderByDescending(p => p.CountGrade > 0 ? (decimal)p.SumGrade / p.CountGrade : 0).ToList();
+                    break;
+            }
 
             return PersonMapper.MapPersonResponse(people);
         }
