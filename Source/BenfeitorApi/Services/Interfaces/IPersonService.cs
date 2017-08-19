@@ -10,6 +10,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
     {
         PersonResponse CreatePerson(CreatePersonRequest request);
         PersonResponse GetPerson(Guid personKey);
+        PersonResponse GetOtherPerson(Guid otherPersonKey);
         long GetPersonId(Guid personKey);
         PersonResponse UpdatePerson(Guid personKey, CreatePersonRequest request);
         void DeletePerson(Guid personKey);

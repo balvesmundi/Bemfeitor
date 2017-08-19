@@ -43,7 +43,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
                 Password = request.Password
             };
         }
-
+        
         public static Person UpdatePerson(CreatePersonRequest request)
         {
 
@@ -133,6 +133,26 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
                 TaxPerDay = person.TaxPerDay,
                 Address = PersonMapper.MapAddressResponse(person.Addresses.FirstOrDefault()),
                 Documents = MapDocumentsResponse(person.Documents)
+            };
+        }
+
+        public static PersonResponse MapOtherPersonResponse(Person person)
+        {
+            LoanTypeEnum loanTypeEnum = LoanTypeEnum.Undefined;
+            Enum.TryParse<LoanTypeEnum>(person.LoanTypeEnum, out loanTypeEnum);
+
+            return new PersonResponse()
+            {
+                PersonKey = person.PersonKey,
+                Name = person.Name,
+                FacebookId = person.FacebookId,
+                TwitterId = person.TwitterId,
+                GenderEnum = person.GenderEnum,
+                BirthDate = person.BirthDate,
+                LoanTypeEnum = loanTypeEnum,
+                LoanInCents = person.LoanInCents,
+                DueDate = person.DueDate,
+                TaxPerDay = person.TaxPerDay
             };
         }
 
