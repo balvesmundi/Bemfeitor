@@ -67,8 +67,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
         {
             try
             {
-                // TO DO: autenticar
-                var response = this._personService.GetPerson(personKey);
+                var response = this._personService.GetOtherPerson(personKey);
 
                 return Ok(response);
             }
@@ -77,18 +76,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
                 throw;
             }
         }
-
-        [HttpGet]
-        [Route("accounts/other/{otherPersonKey}")]
-        [ActionAuth]
-        public IHttpActionResult GetOtherAccount(Guid otherPersonKey)
-        {
-
-            var response = this._personService.GetOtherPerson(otherPersonKey);
-
-            return Ok(response);
-        }
-
+        
         [HttpPatch]
         [Route("accounts")]
         [ActionAuth]
