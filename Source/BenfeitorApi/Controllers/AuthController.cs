@@ -1,9 +1,12 @@
 ﻿using System.Web.Http;
+using System.Web.Http.Cors;
+using MundiPagg.Benfeitor.BenfeitorApi.Attributes;
 using MundiPagg.Benfeitor.BenfeitorApi.Models.Request;
 using MundiPagg.Benfeitor.BenfeitorApi.Services;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AuthController : ApiController
     {
 

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web.Http;
+﻿using System.Web.Http;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi
 {
@@ -20,6 +17,8 @@ namespace MundiPagg.Benfeitor.BenfeitorApi
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
+
+            config.EnableCors();
         }
     }
 }

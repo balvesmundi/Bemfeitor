@@ -1,19 +1,15 @@
-﻿using BenfeitorApi.Models;
-using BenfeitorApi.Models.Request;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System;
 using System.Web.Http;
-using MundiPagg.Benfeitor.BenfeitorApi.Models;
-using MundiPagg.Benfeitor.BenfeitorApi.Services;
-using MundiPagg.Benfeitor.BenfeitorApi.Models.Request;
+using System.Web.Http.Cors;
 using MundiPagg.Benfeitor.BenfeitorApi.Attributes;
+using MundiPagg.Benfeitor.BenfeitorApi.Models.Request;
 using MundiPagg.Benfeitor.BenfeitorApi.Models.Response;
+using MundiPagg.Benfeitor.BenfeitorApi.Services;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
 {
     [ActionAuth]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class LoanController : ApiController
     {
 
@@ -26,7 +22,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
             this._loanService = loanService;
             this._personService = personService;
         }
-        
+
 
         [HttpPost]
         [Route("loans")]
