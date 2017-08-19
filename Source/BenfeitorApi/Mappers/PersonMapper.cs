@@ -1,6 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using BenfeitorApi.Models.Request;
 using Domain.Aggregates.Entities;
 using MundiPagg.Benfeitor.BenfeitorApi.Models;
+using MundiPagg.Benfeitor.BenfeitorApi.Models.Request;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
 {
@@ -23,7 +27,9 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
                 PersonKey = Guid.NewGuid(),
                 TwitterId = request.TwitterId,
                 WorkPhone = request.WorkPhone,
-                Address = PersonMapper.MapAddress(request.Address),
+                Addresses = new List<Address>(){
+                    PersonMapper.MapAddress(request.Address)
+                },
                 BalanceInCents = request.BalanceInCents,
                 DueDate = request.DueDate,
                 LoanInCents = request.LoanInCents,
@@ -73,7 +79,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
         {
             return new PersonResponse()
             {
-                Address = PersonMapper.MapAddressResponse(person.Address),
+                Address = PersonMapper.MapAddressResponse(person.Addresses.FirstOrDefault()),
                 BirthDate = person.BirthDate,
                 CreateDate = person.CreateDate,
                 Email = person.Email,

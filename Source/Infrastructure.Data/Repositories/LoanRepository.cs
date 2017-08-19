@@ -5,8 +5,9 @@ using MundiPagg.Benfeitor.Infrastructure.Data.Seedwork;
 namespace MundiPagg.Benfeitor.Infrastructure.Data.Repositories
 {
 
-    public class PersonRepository : Repository<Person>, IPersonRepository {
+    public class LoanRepository : Repository<LoanHistory>, ILoanRepository
+    {
 
-        public PersonRepository(UnitOfWork unitOfWork) : base(unitOfWork) { }
+        public LoanRepository(UnitOfWork unitOfWork) : base(unitOfWork) { }
     }
 }

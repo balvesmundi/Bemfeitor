@@ -5,5 +5,5 @@ using MundiPagg.Benfeitor.Domain.Seedwork;
 namespace MundiPagg.Benfeitor.Domain.Aggregates.Repositories
 {
 
-    public interface IPersonRepository : IRepository<Person> { }
+    public interface IAddressRepository : IRepository<Address> { }
 }

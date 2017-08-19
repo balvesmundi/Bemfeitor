@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Domain.Aggregates.Entities
 {
@@ -38,8 +39,8 @@ namespace Domain.Aggregates.Entities
 
         public decimal? TaxPerDay { get; set; }
 
-        public long AddressId { get; set; }
+        public List<Address> Addresses { get; set; }
 
-        public Address Address { get; set; }
+        public List<Document> Documents { get; set; }
     }
 }

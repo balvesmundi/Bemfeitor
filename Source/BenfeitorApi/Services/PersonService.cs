@@ -2,7 +2,8 @@
 using System.Transactions;
 using MundiPagg.Benfeitor.BenfeitorApi.Mappers;
 using MundiPagg.Benfeitor.BenfeitorApi.Models;
-using MundiPagg.Benfeitor.Domain.Aggregates.CustomerAgg.Repositories;
+using MundiPagg.Benfeitor.BenfeitorApi.Models.Request;
+using MundiPagg.Benfeitor.Domain.Aggregates.Repositories;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 {
@@ -10,27 +11,39 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
     {
 
         private IPersonRepository _personRepository;
+        private IAddressRepository _addressRepository;
 
-        public PersonService(IPersonRepository personRepository)
+        public PersonService(IPersonRepository personRepository, IAddressRepository addressRepository)
         {
 
             this._personRepository = personRepository;
+            this._addressRepository = addressRepository;
         }
 
         public PersonResponse CreatePerson(CreatePersonRequest request)
         {
-            var person = PersonMapper.MapPerson(request);
-
-            using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted }))
+            try
             {
-                this._personRepository.Add(person);
+                var person = PersonMapper.MapPerson(request);
 
-                this._personRepository.UnitOfWork.Commit();
+                using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted }))
+                {
+                    this._personRepository.Add(person);
 
-                scope.Complete();
+
+                    //this._addressRepository.UnitOfWork.Commit();
+                    this._personRepository.UnitOfWork.Commit();
+
+
+                    scope.Complete();
+                }
+
+                return PersonMapper.MapPersonResponse(person);
             }
-
-            return PersonMapper.MapPersonResponse(person);
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         public PersonResponse GetPerson(Guid personKey)
@@ -46,6 +59,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
         public void Dispose()
         {
             this._personRepository.Dispose();
+            this._addressRepository.Dispose();
         }
 
         #endregion

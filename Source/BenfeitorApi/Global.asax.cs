@@ -1,35 +1,22 @@
 ﻿using System.Web.Http;
+using Microsoft.Practices.Unity;
 using MundiPagg.Benfeitor.BenfeitorApi;
 using MundiPagg.Benfeitor.BenfeitorApi.Services;
-using MundiPagg.Benfeitor.Domain.Aggregates.CustomerAgg.Repositories;
+using MundiPagg.Benfeitor.Domain.Aggregates.Repositories;
+using MundiPagg.Benfeitor.Infrastructure.Data;
 using MundiPagg.Benfeitor.Infrastructure.Data.Repositories;
-using SimpleInjector;
-using SimpleInjector.Integration.WebApi;
-using SimpleInjector.Lifestyles;
 
 namespace BenfeitorApi
 {
     public class WebApiApplication : System.Web.HttpApplication
     {
+        static IUnityContainer _container;
+
         protected void Application_Start()
         {
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
-            // Create the container as usual.
-            var container = new Container();
-            container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
-
-            // Register your types, for instance using the scoped lifestyle:
-            container.Register<IPersonRepository, PersonRepository>(Lifestyle.Scoped);
-            container.Register<IPersonService, PersonService>(Lifestyle.Scoped);
-
-            // This is an extension method from the integration package.
-            container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
-
-            container.Verify();
-
-            GlobalConfiguration.Configuration.DependencyResolver =
-                new SimpleInjectorWebApiDependencyResolver(container);
+            UnitOfWork.Initialize();
         }
     }
 }

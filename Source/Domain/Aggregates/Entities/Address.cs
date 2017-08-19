@@ -22,5 +22,7 @@
         public string Complement { get; set; }
 
         public string ZipCode { get; set; }
+
+        public virtual Person Person { get; set; }
     }
 }

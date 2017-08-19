@@ -13,6 +13,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi
 
             // Web API routes
             config.MapHttpAttributeRoutes();
+            config.DependencyResolver = new UnityResolver(IoCFactory.Current);
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",

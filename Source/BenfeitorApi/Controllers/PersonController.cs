@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Web.Http;
 using MundiPagg.Benfeitor.BenfeitorApi.Models;
+using MundiPagg.Benfeitor.BenfeitorApi.Models.Request;
 using MundiPagg.Benfeitor.BenfeitorApi.Services;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers

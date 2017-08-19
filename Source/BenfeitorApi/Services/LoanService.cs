@@ -1,8 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Transactions;
 using System.Web;
+using MundiPagg.Benfeitor.BenfeitorApi.Mappers;
 using MundiPagg.Benfeitor.BenfeitorApi.Models;
+using MundiPagg.Benfeitor.BenfeitorApi.Models.Request;
+using MundiPagg.Benfeitor.Domain.Aggregates.Repositories;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 {
@@ -18,12 +22,20 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 
         public LoanResponse CreateLoan(CreateLoanRequest request)
         {
-            // TODO: Create loan
-            var loanHistory = LoanMapper.MapLoanHistory(request);
 
-            this._loanRepository.CreateLoanHistory(loanHistory);
+            using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted }))
+            {
+                // TODO: Create loan
+                var loanHistory = LoanMapper.MapLoanHistory(request);
 
-            return LoanMapper.MapLoanHistoryResponse(loanHistory);
+                this._loanRepository.Add(loanHistory);
+
+                this._loanRepository.UnitOfWork.Commit();
+
+                scope.Complete();
+
+                return LoanMapper.MapLoanHistoryResponse(loanHistory);
+            }
         }
 
         public LoanResponse GetLoan(long id)

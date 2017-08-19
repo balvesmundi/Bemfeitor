@@ -5,6 +5,7 @@ using System.Web;
 using Domain.Aggregates.Entities;
 using Domain.Aggregates.Enums;
 using MundiPagg.Benfeitor.BenfeitorApi.Models;
+using MundiPagg.Benfeitor.BenfeitorApi.Models.Request;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
 {

@@ -1,5 +1,6 @@
 ﻿using System;
 using MundiPagg.Benfeitor.BenfeitorApi.Models;
+using MundiPagg.Benfeitor.BenfeitorApi.Models.Request;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 {

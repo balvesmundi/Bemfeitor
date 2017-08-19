@@ -27,6 +27,10 @@ namespace Domain.Aggregates.Entities
         public string CommentToBorrower { get; set; }
 
         public DateTime CreateDate { get; set; }
+
+        public Person PersonLender { get; set; }
+
+        public Person PersonBorrower { get; set; }
     }
 
 }
