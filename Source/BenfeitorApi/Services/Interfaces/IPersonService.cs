@@ -2,6 +2,7 @@
 using MundiPagg.Benfeitor.BenfeitorApi.Models;
 using MundiPagg.Benfeitor.BenfeitorApi.Models.Request;
 using MundiPagg.Benfeitor.BenfeitorApi.Models.Response;
+using System.Collections.Generic;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 {
@@ -12,5 +13,6 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
         long GetPersonId(Guid personKey);
         PersonResponse UpdatePerson(Guid personKey, CreatePersonRequest request);
         void DeletePerson(Guid personKey);
+        List<PersonResponse> Search(Guid personKey, SearchRequest request);
     }
 }
