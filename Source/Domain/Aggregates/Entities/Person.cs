@@ -39,6 +39,8 @@ namespace Domain.Aggregates.Entities
 
         public decimal? TaxPerDay { get; set; }
 
+        public bool IsEnabled { get; set; }
+
         public List<Address> Addresses { get; set; }
 
         public List<Document> Documents { get; set; }
