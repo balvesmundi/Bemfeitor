@@ -166,5 +166,17 @@ WHERE PersonId = @PersonId";
         {
             throw new NotImplementedException();
         }
+
+        public Person PatchPerson(Person personRequest)
+        {
+            #warning Verificar dados nulos pra não atualizar no cadastro e retornar o Person todo
+            throw new NotImplementedException();
+        }
+
+        public void DeletePerson(Guid personKey)
+        {
+            #warning apenas desabilitar pessoa
+            throw new NotImplementedException();
+        }
     }
 }

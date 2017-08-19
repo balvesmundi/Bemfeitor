@@ -46,6 +46,15 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
             }
         }
 
+        public PersonResponse PatchPerson(CreatePersonRequest request)
+        {
+            var personRequest = PersonMapper.MapPerson(request);
+
+            var person = this._personRepository.PatchPerson(personRequest);
+
+            return PersonMapper.MapPersonResponse(person);
+        }
+
         public PersonResponse GetPerson(Guid personKey)
         {
             var person = this._personRepository.FindOne(p => p.PersonKey == personKey);
@@ -68,5 +77,10 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
         }
 
         #endregion
+
+        public void DeletePerson(Guid personKey)
+        {
+            this._personRepository.DeletePerson(personKey);
+        }
     }
 }
