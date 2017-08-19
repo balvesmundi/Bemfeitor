@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using MundiPagg.Benfeitor.BenfeitorApi.Models;
-using MundiPagg.Benfeitor.Repository.Interfaces;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 {

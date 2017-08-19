@@ -1,8 +1,8 @@
 ﻿using System.Web.Http;
 using MundiPagg.Benfeitor.BenfeitorApi;
 using MundiPagg.Benfeitor.BenfeitorApi.Services;
-using MundiPagg.Benfeitor.Repository;
-using MundiPagg.Benfeitor.Repository.Interfaces;
+using MundiPagg.Benfeitor.Domain.Aggregates.CustomerAgg.Repositories;
+using MundiPagg.Benfeitor.Infrastructure.Data.Repositories;
 using SimpleInjector;
 using SimpleInjector.Integration.WebApi;
 using SimpleInjector.Lifestyles;

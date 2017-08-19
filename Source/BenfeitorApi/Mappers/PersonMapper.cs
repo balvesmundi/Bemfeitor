@@ -1,6 +1,6 @@
 ﻿using System;
+using Domain.Aggregates.Entities;
 using MundiPagg.Benfeitor.BenfeitorApi.Models;
-using MundiPagg.Benfeitor.Repository.Entities;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
 {

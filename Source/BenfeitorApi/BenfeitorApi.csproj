@@ -55,6 +55,7 @@
       <HintPath>..\packages\SimpleInjector.Integration.WebApi.4.0.8\lib\net45\SimpleInjector.Integration.WebApi.dll</HintPath>
     </Reference>
     <Reference Include="System.Net.Http" />
+    <Reference Include="System.Transactions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -124,9 +125,13 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Repository\Repository.csproj">
-      <Project>{5643588b-c59d-416a-90cd-3f28ce8c2ede}</Project>
-      <Name>Repository</Name>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{1339482c-ffce-480a-9f4a-b748af5407fc}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.Data\Infrastructure.Data.csproj">
+      <Project>{99380a69-ddee-4e97-9fa8-a3fb0db8f868}</Project>
+      <Name>Infrastructure.Data</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

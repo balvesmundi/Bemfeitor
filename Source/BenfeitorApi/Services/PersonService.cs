@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Transactions;
 using MundiPagg.Benfeitor.BenfeitorApi.Mappers;
 using MundiPagg.Benfeitor.BenfeitorApi.Models;
-using MundiPagg.Benfeitor.Repository.Interfaces;
+using MundiPagg.Benfeitor.Domain.Aggregates.CustomerAgg.Repositories;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 {
@@ -21,16 +22,33 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
         {
             var person = PersonMapper.MapPerson(request);
 
-            this._personRepository.CreatePerson(person);
+            using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted }))
+            {
+                this._personRepository.Add(person);
+
+                this._personRepository.UnitOfWork.Commit();
+
+                scope.Complete();
+            }
 
             return PersonMapper.MapPersonResponse(person);
         }
 
         public PersonResponse GetPerson(Guid personKey)
         {
-            var person = this._personRepository.GetPersonByKey(personKey);
+            var person = this._personRepository.FindOne(p => p.PersonKey == personKey);
 
             return PersonMapper.MapPersonResponse(person);
         }
+
+
+        #region IDisposable Members
+
+        public void Dispose()
+        {
+            this._personRepository.Dispose();
+        }
+
+        #endregion
     }
 }

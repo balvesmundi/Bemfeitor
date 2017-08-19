@@ -3,7 +3,7 @@ using MundiPagg.Benfeitor.BenfeitorApi.Models;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 {
-    public interface IPersonService
+    public interface IPersonService : IDisposable
     {
         PersonResponse CreatePerson(CreatePersonRequest request);
         PersonResponse GetPerson(Guid personKey);
