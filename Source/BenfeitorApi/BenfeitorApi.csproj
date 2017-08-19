@@ -113,6 +113,8 @@
     <Compile Include="IoCFactory.cs" />
     <Compile Include="Mappers\LoanMapper.cs" />
     <Compile Include="Mappers\PersonMapper.cs" />
+    <Compile Include="Models\Enums\TypeOrder.cs" />
+    <Compile Include="Models\Enums\TypeSearch.cs" />
     <Compile Include="Models\Request\CreateDocumentRequest.cs" />
     <Compile Include="Models\Request\SearchRequest.cs" />
     <Compile Include="Models\Response\AddressResponse.cs" />

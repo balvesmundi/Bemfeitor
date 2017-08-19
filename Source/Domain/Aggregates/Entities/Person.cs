@@ -44,5 +44,13 @@ namespace Domain.Aggregates.Entities
         public List<Address> Addresses { get; set; }
 
         public List<Document> Documents { get; set; }
+
+        public long SumGrade { get; set; }
+
+        public long CountGrade { get; set; }
+
+        public bool HasBorrowed { get; set; }
+
+        public bool HasLended { get; set; }
     }
 }

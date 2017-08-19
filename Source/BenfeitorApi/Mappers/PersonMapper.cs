@@ -133,6 +133,19 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
             };
         }
 
+        public static List<PersonResponse> MapPersonResponse(List<Person> people)
+        {
+            if (people == null) return null;
+
+            var result = new List<PersonResponse>();
+            foreach(var person in people)
+            {
+                result.Add(MapPersonResponse(person));
+            }
+
+            return result;
+        }
+
         public static AddressResponse MapAddressResponse(Address address)
         {
             if (address == null) return null;

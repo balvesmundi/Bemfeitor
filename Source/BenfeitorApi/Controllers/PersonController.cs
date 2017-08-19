@@ -67,12 +67,12 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
         }
         
         [HttpPost]
-        [Route("accounts")]
-        public IHttpActionResult Search(SearchRequest request)
+        [Route("accounts/{personKey}/search")]
+        public IHttpActionResult Search(Guid personKey, SearchRequest request)
         {
 
-            var response = this._personService.CreatePerson(request);
-
+            var response = this._personService.Search(personKey, request);
+            
             return Ok(response);
         }
 

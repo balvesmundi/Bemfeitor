@@ -41,6 +41,10 @@ namespace MundiPagg.Benfeitor.Repository.Entities
 
         public Address Address { get; set; }
 
-        public List<Document> Documents { get; set; } 
+        public List<Document> Documents { get; set; }
+
+        public long SumGrade { get; set; }
+
+        public long CountGrade { get; set; }
     }
 }
