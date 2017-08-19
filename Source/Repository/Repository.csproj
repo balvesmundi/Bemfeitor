@@ -43,7 +43,9 @@
     <Compile Include="Entities\Address.cs" />
     <Compile Include="Entities\Document.cs" />
     <Compile Include="Entities\LoanHistory.cs" />
+    <Compile Include="Interfaces\ILoanRepository.cs" />
     <Compile Include="Interfaces\IPersonRepository.cs" />
+    <Compile Include="LoanRepository.cs" />
     <Compile Include="PersonRepository.cs" />
     <Compile Include="Entities\Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
