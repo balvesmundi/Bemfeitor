@@ -32,18 +32,18 @@ namespace BenfeitorApi.Controllers
             // TODO: Create account
             //_personService.CreateAccount(
 
-            
-            return this.GetAccount("1");
+
+            return this.GetAccount(new Guid());
         }
 
         [HttpGet]
         [Route("accounts/{id}")]
-        public IHttpActionResult GetAccount(string id)
+        public IHttpActionResult GetAccount(Guid personKey)
         {
 
             var response = new PersonResponse()
             {
-                Id = id,
+                PersonKey = personKey,
                 //Name = request.Name
             };
 

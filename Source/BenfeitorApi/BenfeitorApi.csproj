@@ -95,6 +95,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\AddressResponse.cs" />
+    <Compile Include="Models\CreateAddressRequest.cs" />
     <Compile Include="Models\PersonResponse.cs" />
     <Compile Include="Models\CreatePersonRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
