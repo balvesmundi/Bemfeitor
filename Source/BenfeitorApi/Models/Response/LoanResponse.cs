@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using Domain.Aggregates.Enums;
 
-namespace MundiPagg.Benfeitor.BenfeitorApi.Models.Request
+namespace MundiPagg.Benfeitor.BenfeitorApi.Models.Response
 {
     public class LoanResponse
     {

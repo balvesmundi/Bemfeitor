@@ -3,9 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using BenfeitorApi.Models.Response;
 
-namespace MundiPagg.Benfeitor.BenfeitorApi.Models.Request
+namespace MundiPagg.Benfeitor.BenfeitorApi.Models.Response
 {
     public class PersonResponse
     {

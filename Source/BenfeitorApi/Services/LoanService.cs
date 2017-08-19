@@ -6,6 +6,7 @@ using System.Web;
 using MundiPagg.Benfeitor.BenfeitorApi.Mappers;
 using MundiPagg.Benfeitor.BenfeitorApi.Models;
 using MundiPagg.Benfeitor.BenfeitorApi.Models.Request;
+using MundiPagg.Benfeitor.BenfeitorApi.Models.Response;
 using MundiPagg.Benfeitor.Domain.Aggregates.Repositories;
 
 namespace MundiPagg.Benfeitor.BenfeitorApi.Services
@@ -43,5 +44,14 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 
             return LoanMapper.MapLoanHistoryResponse(loan);
         }
+
+        #region IDisposable Members
+
+        public void Dispose()
+        {
+            this._loanRepository.Dispose();
+        }
+
+        #endregion
     }
 }

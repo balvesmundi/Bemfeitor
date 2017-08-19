@@ -41,6 +41,12 @@ namespace Domain.Aggregates.Entities
 
         public bool IsEnabled { get; set; }
 
+        public string Username { get; set; }
+
+        public string Password { get; set; }
+
+        public string BearerToken { get; set; }
+
         public List<Address> Addresses { get; set; }
 
         public List<Document> Documents { get; set; }

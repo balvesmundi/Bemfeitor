@@ -1,11 +1,14 @@
 ﻿using System.Data.Entity.ModelConfiguration;
 using Domain.Aggregates.Entities;
 
-namespace MundiPagg.Benfeitor.Infrastructure.Data.Mappings {
+namespace MundiPagg.Benfeitor.Infrastructure.Data.Mappings
+{
 
-    class PersonMapping : EntityTypeConfiguration<Person> {
+    class PersonMapping : EntityTypeConfiguration<Person>
+    {
 
-        public PersonMapping() {
+        public PersonMapping()
+        {
 
             HasKey(p => p.PersonId);
 
@@ -27,6 +30,10 @@ namespace MundiPagg.Benfeitor.Infrastructure.Data.Mappings {
             Property(p => p.TaxPerDay).IsOptional();
             Property(p => p.Name).IsRequired();
             Property(p => p.IsEnabled).IsRequired();
+            Property(p => p.Username).IsRequired();
+            Property(p => p.Password).IsRequired();
+            Property(p => p.BearerToken).IsOptional();
+
         }
     }
 }
