@@ -25,7 +25,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
                 PersonBorrowerId = borrowerId,
                 PersonLenderId = lenderId,
                 ChargeId = chargeId,
-                LoanDescription = request.LoanDescription
+                LoanReason = request.LoanReason
             };
         }
 
@@ -42,7 +42,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
                 AmountInCents = loanHistory.AmountInCents,
                 DueDate = loanHistory.DueDate,
                 TaxPerDay = loanHistory.TaxPerDay,
-                LoanDescription = loanHistory.LoanDescription,
+                LoanReason = loanHistory.LoanReason,
 
                 LenderGrade = loanHistory.LenderGrade,
                 BorrowerGrade = loanHistory.BorrowerGrade,

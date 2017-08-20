@@ -20,7 +20,7 @@ namespace MundiPagg.Benfeitor.Infrastructure.Data.Mappings {
             Property(p => p.BorrowerGrade).IsOptional();
             Property(p => p.CommentToLender).IsOptional();
             Property(p => p.CommentToBorrower).IsOptional();
-            Property(p => p.LoanDescription).IsOptional();
+            Property(p => p.LoanReason).IsOptional();
             Property(p => p.CreateDate).IsRequired();
 
             HasRequired(p => p.Borrower).WithMany(p => p.BorrowedLoans).HasForeignKey(p => p.PersonBorrowerId);

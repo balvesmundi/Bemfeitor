@@ -89,7 +89,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
                 if (request.BalanceInCents != null) person.BalanceInCents = request.BalanceInCents;
                 if (request.DueDate != null) person.DueDate = request.DueDate;
                 if (request.LoanInCents != null) person.LoanInCents = request.LoanInCents;
-                if (request.LoanDescription != null) person.LoanDescription = request.LoanDescription;
+                if (request.LoanReason != null) person.LoanReason = request.LoanReason;
                 if (request.LoanTypeEnum != LoanTypeEnum.Undefined) person.LoanTypeEnum = request.LoanTypeEnum.ToString();
                 if (request.TaxPerDay != null) person.TaxPerDay = request.TaxPerDay;
                 if (request.Documents != null) person.Documents = PersonMapper.MapDocuments(request.Documents);

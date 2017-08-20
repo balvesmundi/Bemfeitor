@@ -26,7 +26,7 @@ namespace MundiPagg.Benfeitor.Infrastructure.Data.Mappings
             Property(p => p.BalanceInCents).IsOptional();
             Property(p => p.LoanTypeEnum).IsOptional();
             Property(p => p.LoanInCents).IsOptional();
-            Property(p => p.LoanDescription).IsOptional();
+            Property(p => p.LoanReason).IsOptional();
             Property(p => p.DueDate).IsOptional();
             Property(p => p.TaxPerDay).IsOptional();
             Property(p => p.Name).IsRequired();

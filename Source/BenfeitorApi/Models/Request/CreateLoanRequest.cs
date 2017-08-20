@@ -12,6 +12,6 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Models.Request
         public long AmountInCents { get; set; }
         public DateTime? DueDate { get; set; }
         public decimal? TaxPerDay { get; set; }
-        public string LoanDescription { get; set; }
+        public string LoanReason { get; set; }
     }
 }
