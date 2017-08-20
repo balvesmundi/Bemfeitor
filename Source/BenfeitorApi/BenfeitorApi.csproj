@@ -140,9 +140,11 @@
     <Compile Include="Seedwork\Exceptions\BadRequestException.cs" />
     <Compile Include="Services\Interfaces\IAuthenticationService.cs" />
     <Compile Include="Services\Interfaces\ILoanService.cs" />
+    <Compile Include="Services\Interfaces\IRecipientService.cs" />
     <Compile Include="Services\Interfaces\IPersonService.cs" />
     <Compile Include="Services\LoanService.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Services\RecipientService.cs" />
     <Compile Include="Services\PersonService.cs" />
     <Compile Include="UnityResolver.cs" />
   </ItemGroup>
