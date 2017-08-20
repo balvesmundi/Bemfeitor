@@ -47,7 +47,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
                 Password = request.Password
             };
         }
-        
+
         public static List<Document> MapDocuments(List<CreateDocumentRequest> documentsRequest)
         {
             if (documentsRequest == null)
@@ -128,12 +128,13 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
                 TaxPerDay = person.TaxPerDay,
                 Address = PersonMapper.MapAddressResponse(person.Addresses?.FirstOrDefault()),
                 Documents = PersonMapper.MapDocumentsResponse(person.Documents),
-                BankAccount = PersonMapper.MapBankAccountResponse(person.BankAccount),
+                BankAccount = PersonMapper.MapBankAccountResponse(person.BankAccount?.FirstOrDefault()),
                 CountAsBorrower = person.CountAsBorrower,
-                CountAsLender = person.CountAsLender
+                CountAsLender = person.CountAsLender,
+                Grade = person.CountGrade > 0 ? person.SumGrade / person.CountGrade : 0
             };
         }
-        
+
         public static PersonResponse MapOtherPersonResponse(Person person)
         {
             LoanTypeEnum loanTypeEnum = LoanTypeEnum.Undefined;
@@ -152,7 +153,8 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
                 DueDate = person.DueDate,
                 TaxPerDay = person.TaxPerDay,
                 CountAsLender = person.CountAsLender,
-                CountAsBorrower = person.CountAsBorrower
+                CountAsBorrower = person.CountAsBorrower,
+                Grade = person.CountGrade > 0 ? person.SumGrade / person.CountGrade : 0
             };
         }
 

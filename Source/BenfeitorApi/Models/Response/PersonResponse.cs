@@ -28,6 +28,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Models.Response
         public decimal? TaxPerDay { get; set; }
         public int CountAsBorrower { get; set; }
         public int CountAsLender { get; set; }
+        public long Grade { get; set; }
 
         public AddressResponse Address { get; set; }
         
