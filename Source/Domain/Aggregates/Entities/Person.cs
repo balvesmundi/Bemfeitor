@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MundiPagg.BenfeitorDomain.Aggregates.Entities;
+using System;
 using System.Collections.Generic;
 
 namespace Domain.Aggregates.Entities
@@ -50,6 +51,8 @@ namespace Domain.Aggregates.Entities
         public virtual List<Address> Addresses { get; set; }
 
         public virtual List<Document> Documents { get; set; }
+
+        public virtual List<BankAccount> BankAccount { get; set; }
 
         public long SumGrade { get; set; }
 

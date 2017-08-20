@@ -26,8 +26,13 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Models.Response
         public long? LoanInCents { get; set; }
         public DateTime? DueDate { get; set; }
         public decimal? TaxPerDay { get; set; }
+        public int CountAsBorrower { get; set; }
+        public int CountAsLender { get; set; }
+        public long Grade { get; set; }
 
         public AddressResponse Address { get; set; }
+        
+        public BankAccountResponse BankAccount { get; set; }
 
         public List<DocumentResponse> Documents { get; set; }
     }

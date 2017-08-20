@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Aggregates\Entities\Address.cs" />
+    <Compile Include="Aggregates\Entities\BankAccount.cs" />
     <Compile Include="Aggregates\Entities\Document.cs" />
     <Compile Include="Aggregates\Entities\LoanHistory.cs" />
     <Compile Include="Aggregates\Entities\Person.cs" />
