@@ -10,7 +10,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Models.Response
     {
         public long LoanHistoryId { get; set; }
 
-        public LoanStatusEnum LoanStatusEnum { get; set; }
+        public string LoanStatusEnum { get; set; }
 
 
         public long AmountInCents { get; set; }
