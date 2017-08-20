@@ -76,16 +76,16 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
                 throw;
             }
         }
-        
+
         [HttpPatch]
         [Route("accounts")]
         [ActionAuth]
         public IHttpActionResult UpdateAccount(CreatePersonRequest request)
         {
 
-            Guid personKey = new Guid();
+            var person = this.Request.Properties["Person"] as PersonResponse;
 
-            var response = this._personService.UpdatePerson(personKey, request);
+            var response = this._personService.UpdatePerson(person.PersonKey, request);
 
             return Ok(response);
         }
