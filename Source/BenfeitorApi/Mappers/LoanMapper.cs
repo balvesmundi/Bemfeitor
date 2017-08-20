@@ -35,7 +35,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
             return new LoanResponse()
             {
                 LoanHistoryId = loanHistory.LoanHistoryId,
-                LoanStatusEnum = loanStatusEnum,
+                LoanStatusEnum = loanStatusEnum.ToString(),
                 
                 AmountInCents = loanHistory.AmountInCents,
                 DueDate = loanHistory.DueDate,
