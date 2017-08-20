@@ -27,5 +27,9 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Models.Response
         public string CommentToLender { get; set; }
 
         public string CommentToBorrower { get; set; }
+
+        public string BorrowerName { get; set; }
+
+        public string LenderName { get; set; }
     }
 }

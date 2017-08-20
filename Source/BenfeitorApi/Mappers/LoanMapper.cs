@@ -44,7 +44,10 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
                 LenderGrade = loanHistory.LenderGrade,
                 BorrowerGrade = loanHistory.BorrowerGrade,
                 CommentToBorrower = loanHistory.CommentToBorrower,
-                CommentToLender = loanHistory.CommentToLender
+                CommentToLender = loanHistory.CommentToLender,
+
+                LenderName = loanHistory.Lender?.Name,
+                BorrowerName = loanHistory.Borrower?.Name
             };
         }
 
