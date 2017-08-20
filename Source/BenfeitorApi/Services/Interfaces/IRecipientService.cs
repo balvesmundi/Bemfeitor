@@ -1,14 +1,11 @@
-﻿//using System;
-//using System.Collections.Generic;
-//using MundiPagg.Benfeitor.BenfeitorApi.Models.Request;
-//using MundiPagg.Benfeitor.BenfeitorApi.Models.Response;
+﻿using System;
+using MundiPagg.Benfeitor.BenfeitorApi.Models.Request;
+using MundiPagg.Benfeitor.BenfeitorApi.Models.Response;
 
-//namespace MundiPagg.Benfeitor.BenfeitorApi.Services
-//{
-//    public interface IPersonService : IDisposable
-//    {
-//        PersonResponse CreatePerson(CreatePersonRequest request);
-
-//        PersonResponse GetPerson(Guid personKey);
-//    }
-//}
+namespace MundiPagg.Benfeitor.BenfeitorApi.Services
+{
+    public interface IRecipientService : IDisposable
+    {
+        RecipientResponse CreateRecipient(CreateRecipientRequest request);
+    }
+}

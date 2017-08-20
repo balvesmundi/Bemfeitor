@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace Infrastructure.Payment.Contracts
+namespace MundiPagg.Benfeitor.BenfeitorApi.Models.Response
 {
 
-    public class CreateRecipientResponseDTO
+    public class RecipientResponse
     {
 
         public string Id { get; set; }
@@ -15,6 +15,6 @@ namespace Infrastructure.Payment.Contracts
         public string Status { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
-        public DefaultBankAccountResponseDTO DefaultBankAccount { get; set; }
+        public RecipientBankAccountResponse RecipientBankAccount { get; set; }
     }
 }

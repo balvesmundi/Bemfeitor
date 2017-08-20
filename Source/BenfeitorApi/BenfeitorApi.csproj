@@ -66,6 +66,9 @@
     <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention, Version=4.0.0.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
       <HintPath>..\packages\Unity.4.0.1\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -92,9 +95,6 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System.Net.Http.Formatting">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
     </Reference>
@@ -122,16 +122,21 @@
     <Compile Include="IoCFactory.cs" />
     <Compile Include="Mappers\LoanMapper.cs" />
     <Compile Include="Mappers\PersonMapper.cs" />
+    <Compile Include="Mappers\RecipientMapper.cs" />
     <Compile Include="Models\Request\AuthenticateRequest.cs" />
     <Compile Include="Models\Enums\TypeOrder.cs" />
     <Compile Include="Models\Request\CreateBankAccountRequest.cs" />
     <Compile Include="Models\Request\CreateDocumentRequest.cs" />
+    <Compile Include="Models\Request\CreateRecipientRequest.cs" />
+    <Compile Include="Models\Request\CreateRecipientBankAccountRequest.cs" />
     <Compile Include="Models\Request\SearchRequest.cs" />
     <Compile Include="Models\Response\AddressResponse.cs" />
     <Compile Include="Models\Request\CreateAddressRequest.cs" />
     <Compile Include="Models\Request\CreateLoanRequest.cs" />
     <Compile Include="Models\Response\AuthenticateResponse.cs" />
     <Compile Include="Models\Response\BankAccountResponse.cs" />
+    <Compile Include="Models\Response\RecipientResponse.cs" />
+    <Compile Include="Models\Response\RecipientBankAccountResponse.cs" />
     <Compile Include="Models\Response\DocumentResponse.cs" />
     <Compile Include="Models\Enums\LoanTypeEnum.cs" />
     <Compile Include="Models\Response\LoanResponse.cs" />
@@ -170,6 +175,10 @@
     <ProjectReference Include="..\Infrastructure.Data\Infrastructure.Data.csproj">
       <Project>{99380a69-ddee-4e97-9fa8-a3fb0db8f868}</Project>
       <Name>Infrastructure.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Infrastructure.Payment\Infrastructure.Payment.csproj">
+      <Project>{88f999eb-a800-4620-8174-e2bdf8ee86c9}</Project>
+      <Name>Infrastructure.Payment</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

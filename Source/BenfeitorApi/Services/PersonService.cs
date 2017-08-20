@@ -21,13 +21,15 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
         private IPersonRepository _personRepository;
         private IAddressRepository _addressRepository;
         private ILoanRepository _loanRepository;
+        private IRecipientService _recipientService;
 
-        public PersonService(IPersonRepository personRepository, IAddressRepository addressRepository, ILoanRepository loanRepository)
+        public PersonService(IPersonRepository personRepository, IAddressRepository addressRepository, ILoanRepository loanRepository, IRecipientService recipientService)
         {
 
             this._personRepository = personRepository;
             this._addressRepository = addressRepository;
             this._loanRepository = loanRepository;
+            this._recipientService = recipientService;
         }
 
         public PersonResponse CreatePerson(CreatePersonRequest request)
@@ -43,7 +45,12 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
                 throw new BadRequestException("The specified user already exists.");
             }
 
+            var recipientRequest = RecipientMapper.MapCreateRecipientRequest(request);
+
+            var recipientResponse = this._recipientService.CreateRecipient(recipientRequest);
+
             person = PersonMapper.MapPerson(request);
+            person.MundiPaggRecipientId = recipientResponse.Id;
 
             using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted }))
             {
@@ -187,6 +194,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
         {
             this._personRepository.Dispose();
             this._addressRepository.Dispose();
+            this._recipientService.Dispose();
         }
 
         #endregion

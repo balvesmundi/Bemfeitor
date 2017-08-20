@@ -62,6 +62,8 @@ namespace Domain.Aggregates.Entities
 
         public int CountAsLender { get; set; }
 
+        public string MundiPaggRecipientId { get; set; }
+
         public virtual List<LoanHistory> BorrowedLoans { get; set; }
 
         public virtual List<LoanHistory> LendedLoans { get; set; }

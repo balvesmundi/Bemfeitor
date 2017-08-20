@@ -1,4 +1,5 @@
 ﻿using System;
+using Infrastructure.Payment.Seedwork;
 using Microsoft.Practices.Unity;
 using MundiPagg.Benfeitor.BenfeitorApi.Services;
 using MundiPagg.Benfeitor.Domain.Aggregates.Repositories;
@@ -64,6 +65,10 @@ namespace MundiPagg.Benfeitor.BenfeitorApi
             _container.RegisterType<IAuthenticationService, AuthenticationService>();
             _container.RegisterType<IPersonService, PersonService>();
             _container.RegisterType<ILoanService, LoanService>();
+            _container.RegisterType<IRecipientService, RecipientService>();
+
+            // Factories
+            _container.RegisterType<IPaymentFactory, PaymentFactory>();
         }
 
         #endregion

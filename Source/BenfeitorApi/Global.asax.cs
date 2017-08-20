@@ -1,10 +1,8 @@
-﻿using System.Web.Http;
+﻿using System.Net;
+using System.Web.Http;
 using Microsoft.Practices.Unity;
 using MundiPagg.Benfeitor.BenfeitorApi;
-using MundiPagg.Benfeitor.BenfeitorApi.Services;
-using MundiPagg.Benfeitor.Domain.Aggregates.Repositories;
 using MundiPagg.Benfeitor.Infrastructure.Data;
-using MundiPagg.Benfeitor.Infrastructure.Data.Repositories;
 
 namespace BenfeitorApi
 {
@@ -14,6 +12,10 @@ namespace BenfeitorApi
 
         protected void Application_Start()
         {
+
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Ssl3 | SecurityProtocolType.Tls | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+            ServicePointManager.ServerCertificateValidationCallback = delegate { return true; };
+
             GlobalConfiguration.Configure(WebApiConfig.Register);
 
             UnitOfWork.Initialize();

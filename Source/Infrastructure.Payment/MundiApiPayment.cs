@@ -1,12 +1,21 @@
 ﻿using Infrastructure.Payment.Contracts;
 using Infrastructure.Payment.MundiApi.Contracts;
+using Infrastructure.Payment.Seedwork;
 using Newtonsoft.Json;
 using RestSharp;
+using RestSharp.Authenticators;
 
 namespace Infrastructure.Payment
 {
-    public class MundiApiPayment
+    public class MundiApiPayment : IPayment
     {
+
+        private string _secretKey;
+
+        public MundiApiPayment(string secretKey)
+        {
+            this._secretKey = secretKey;
+        }
 
         public CreateRecipientResponseDTO CreateRecipient(CreateRecipientRequestDTO requestDTO)
         {
@@ -35,12 +44,13 @@ namespace Infrastructure.Payment
             var restRequest = new RestRequest("/core/v1/recipients");
             restRequest.AddParameter("application/json", JsonConvert.SerializeObject(request), ParameterType.RequestBody);
             var client = new RestClient("https://api.mundipagg.com");
+            client.Authenticator = new HttpBasicAuthenticator(this._secretKey, null);
             var restResponse = client.Post(restRequest);
             var response = JsonConvert.DeserializeObject<CreateRecipientResponse>(restResponse.Content);
 
             return new CreateRecipientResponseDTO()
             {
-                Created_at = response.created_at,
+                CreatedAt = response.created_at,
                 DefaultBankAccount = new DefaultBankAccountResponseDTO()
                 {
                     AccountCheckDigit = response.default_bank_account.account_check_digit,
@@ -64,7 +74,7 @@ namespace Infrastructure.Payment
                 Name = response.name,
                 Status = response.status,
                 Type = response.type,
-                Updated_at = response.updated_at
+                UpdatedAt = response.updated_at
             };
         }
 
