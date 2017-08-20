@@ -64,8 +64,14 @@ namespace Domain.Aggregates.Entities
 
         public string MundiPaggRecipientId { get; set; }
 
+        public string MundiPaggCustomerId { get; set; }
+
+        public string MundiPaggCardId { get; set; }
+
         public virtual List<LoanHistory> BorrowedLoans { get; set; }
 
         public virtual List<LoanHistory> LendedLoans { get; set; }
+
+        public virtual List<Charge> Charges { get; set; }
     }
 }

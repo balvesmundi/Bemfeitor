@@ -28,9 +28,13 @@ namespace Domain.Aggregates.Entities
 
         public DateTime CreateDate { get; set; }
 
+        public long ChargeId { get; set; }
+
         public Person Lender { get; set; }
 
         public Person Borrower { get; set; }
+
+        public virtual Charge Charge { get; set; }
     }
 
 }

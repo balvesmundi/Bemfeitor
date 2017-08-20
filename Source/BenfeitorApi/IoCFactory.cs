@@ -53,13 +53,14 @@ namespace MundiPagg.Benfeitor.BenfeitorApi
             _container = new UnityContainer();
 
             _container.RegisterType(typeof(UnitOfWork), new PerResolveLifetimeManager());
-            
+
 
             // Repositories
             _container.RegisterType<IPersonRepository, PersonRepository>();
             _container.RegisterType<IAddressRepository, AddressRepository>();
             _container.RegisterType<IDocumentRepository, DocumentRepository>();
             _container.RegisterType<ILoanRepository, LoanRepository>();
+            _container.RegisterType<IChargeRepository, ChargeRepository>();
 
             // Application Services
             _container.RegisterType<IAuthenticationService, AuthenticationService>();

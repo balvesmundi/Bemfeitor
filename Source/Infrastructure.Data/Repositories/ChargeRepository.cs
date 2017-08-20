@@ -5,9 +5,9 @@ using MundiPagg.Benfeitor.Infrastructure.Data.Seedwork;
 namespace MundiPagg.Benfeitor.Infrastructure.Data.Repositories
 {
 
-    public class PersonRepository : Repository<Person>, IPersonRepository
+    public class ChargeRepository : Repository<Charge>, IChargeRepository
     {
 
-        public PersonRepository(UnitOfWork unitOfWork) : base(unitOfWork) { }
+        public ChargeRepository(UnitOfWork unitOfWork) : base(unitOfWork) { }
     }
 }

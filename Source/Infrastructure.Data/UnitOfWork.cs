@@ -88,6 +88,7 @@ namespace MundiPagg.Benfeitor.Infrastructure.Data {
             modelBuilder.Configurations.Add(new AddressMapping());
             modelBuilder.Configurations.Add(new DocumentMapping());
             modelBuilder.Configurations.Add(new LoanMapping());
+            modelBuilder.Configurations.Add(new ChargeMapping());
         }
 
         #endregion

@@ -28,11 +28,19 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
         [Route("loans")]
         public IHttpActionResult CreateLoan(CreateLoanRequest request)
         {
-            var borrowerId = _personService.GetPersonId(request.PersonBorrowerKey);
-            var lenderId = _personService.GetPersonId(request.PersonLenderKey);
-            var response = _loanService.CreateLoan(request, borrowerId, lenderId);
 
-            return Ok(response);
+            try
+            {
+                var borrowerId = _personService.GetPersonId(request.PersonBorrowerKey);
+                var lenderId = _personService.GetPersonId(request.PersonLenderKey);
+                var response = _loanService.CreateLoan(request, borrowerId, lenderId);
+
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         [HttpGet]
