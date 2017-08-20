@@ -1,6 +1,8 @@
-﻿using Infrastructure.Payment.Contracts;
+﻿using System;
+using Infrastructure.Payment.Contracts;
 using Infrastructure.Payment.MundiApi.Contracts;
 using Infrastructure.Payment.Seedwork;
+using MundiAPI.PCL;
 using Newtonsoft.Json;
 using RestSharp;
 using RestSharp.Authenticators;
@@ -78,7 +80,35 @@ namespace Infrastructure.Payment
             };
         }
 
+        public CreateChargeResponseDTO CreateCharge(CreateChargeRequestDTO requestDTO)
+        {
 
+            var request = new MundiAPI.PCL.Models.CreateChargeRequest()
+            {
+                Amount = Convert.ToInt32(requestDTO.Amount),
+                Code = requestDTO.Code,
+                CustomerId = requestDTO.CustomerId,
+                Payment = new MundiAPI.PCL.Models.CreatePaymentRequest()
+                {
+                    CreditCard = new MundiAPI.PCL.Models.CreateCreditCardPaymentRequest()
+                    {
+                        Capture = requestDTO.Capture,
+                        CardId = requestDTO.CardId,
+                        StatementDescriptor = requestDTO.StatementDescriptor
+                    },
+                    PaymentMethod = "credit_card"
+                }
+            };
 
+            var client = new MundiAPIClient(this._secretKey, null);
+
+            var response = client.Charges.CreateCharge(request);
+
+            return new CreateChargeResponseDTO()
+            {
+                GatewayId = response.Id,
+                Status = response.Status
+            };
+        }
     }
 }

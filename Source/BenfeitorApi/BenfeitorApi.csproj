@@ -122,10 +122,12 @@
     <Compile Include="IoCFactory.cs" />
     <Compile Include="Mappers\LoanMapper.cs" />
     <Compile Include="Mappers\PersonMapper.cs" />
+    <Compile Include="Mappers\ChargeMapper.cs" />
     <Compile Include="Mappers\RecipientMapper.cs" />
     <Compile Include="Models\Request\AuthenticateRequest.cs" />
     <Compile Include="Models\Enums\TypeOrder.cs" />
     <Compile Include="Models\Request\CreateBankAccountRequest.cs" />
+    <Compile Include="Models\Request\CreateChargeRequest.cs" />
     <Compile Include="Models\Request\CreateDocumentRequest.cs" />
     <Compile Include="Models\Request\CreateRecipientRequest.cs" />
     <Compile Include="Models\Request\CreateRecipientBankAccountRequest.cs" />
@@ -135,6 +137,7 @@
     <Compile Include="Models\Request\CreateLoanRequest.cs" />
     <Compile Include="Models\Response\AuthenticateResponse.cs" />
     <Compile Include="Models\Response\BankAccountResponse.cs" />
+    <Compile Include="Models\Response\ChargeResponse.cs" />
     <Compile Include="Models\Response\RecipientResponse.cs" />
     <Compile Include="Models\Response\RecipientBankAccountResponse.cs" />
     <Compile Include="Models\Response\DocumentResponse.cs" />
@@ -146,10 +149,12 @@
     <Compile Include="Seedwork\Exceptions\BadRequestException.cs" />
     <Compile Include="Services\Interfaces\IAuthenticationService.cs" />
     <Compile Include="Services\Interfaces\ILoanService.cs" />
+    <Compile Include="Services\Interfaces\IChargeService.cs" />
     <Compile Include="Services\Interfaces\IRecipientService.cs" />
     <Compile Include="Services\Interfaces\IPersonService.cs" />
     <Compile Include="Services\LoanService.cs" />
     <Compile Include="Services\AuthenticationService.cs" />
+    <Compile Include="Services\ChargeService.cs" />
     <Compile Include="Services\RecipientService.cs" />
     <Compile Include="Services\PersonService.cs" />
     <Compile Include="UnityResolver.cs" />

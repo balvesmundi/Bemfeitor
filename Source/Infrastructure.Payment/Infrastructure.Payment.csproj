@@ -50,6 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\CreateChargeRequestDTO.cs" />
+    <Compile Include="Contracts\CreateChargeResponseDTO.cs" />
     <Compile Include="Contracts\CreateRecipientRequestDTO.cs" />
     <Compile Include="Contracts\CreateRecipientResponseDTO.cs" />
     <Compile Include="Contracts\DefaultBankAccountRequestDTO.cs" />
