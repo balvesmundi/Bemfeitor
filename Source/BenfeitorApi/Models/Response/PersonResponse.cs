@@ -30,6 +30,8 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Models.Response
         public int CountAsLender { get; set; }
 
         public AddressResponse Address { get; set; }
+        
+        public BankAccountResponse BankAccount { get; set; }
 
         public List<DocumentResponse> Documents { get; set; }
     }

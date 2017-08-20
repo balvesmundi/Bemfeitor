@@ -124,12 +124,14 @@
     <Compile Include="Mappers\PersonMapper.cs" />
     <Compile Include="Models\Request\AuthenticateRequest.cs" />
     <Compile Include="Models\Enums\TypeOrder.cs" />
+    <Compile Include="Models\Request\CreateBankAccountRequest.cs" />
     <Compile Include="Models\Request\CreateDocumentRequest.cs" />
     <Compile Include="Models\Request\SearchRequest.cs" />
     <Compile Include="Models\Response\AddressResponse.cs" />
     <Compile Include="Models\Request\CreateAddressRequest.cs" />
     <Compile Include="Models\Request\CreateLoanRequest.cs" />
     <Compile Include="Models\Response\AuthenticateResponse.cs" />
+    <Compile Include="Models\Response\BankAccountResponse.cs" />
     <Compile Include="Models\Response\DocumentResponse.cs" />
     <Compile Include="Models\Enums\LoanTypeEnum.cs" />
     <Compile Include="Models\Response\LoanResponse.cs" />

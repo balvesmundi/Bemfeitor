@@ -29,5 +29,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Models.Request
         public CreateAddressRequest Address { get; set; }
 
         public List<CreateDocumentRequest> Documents { get; set; }
+
+        public CreateBankAccountRequest BankAccount { get; set; }
     }
 }
