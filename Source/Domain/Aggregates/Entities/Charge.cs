@@ -19,8 +19,6 @@ namespace Domain.Aggregates.Entities
 
         public long PayerPersonId { get; set; }
 
-        public long RecipientPersonId { get; set; }
-
         public virtual Person Payer { get; set; }
 
         public virtual LoanHistory LoanHistory { get; set; }

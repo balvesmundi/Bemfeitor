@@ -91,31 +91,5 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
                 Type = "individual"
             };
         }
-
-        //public static CreateRecipientRequest MapCreateRecipientRequest(CreatePersonRequest request)
-        //{
-
-        //    return new CreateRecipientRequest()
-        //    {
-        //        Description = request.Name,
-        //        Document = request.Documents.FirstOrDefault().DocumentNumber,
-        //        Email = request.Email,
-        //        Name = request.Name,
-        //        RecipientBankAccount = new CreateRecipientBankAccountRequest()
-        //        {
-        //            AccountCheckDigit = request.BankAccount.AccountCheckDigit,
-        //            AccountNumber = request.BankAccount.AccountNumber,
-        //            Bank = request.BankAccount.Bank,
-        //            BranchCheckDigit = request.BankAccount.BranchCheckDigit,
-        //            BranchNumber = request.BankAccount.BranchNumber,
-        //            HolderDocument = request.BankAccount.HolderDocument,
-        //            HolderName = request.BankAccount.HolderName,
-        //            HolderType = request.BankAccount.HolderType,
-        //            Type = request.BankAccount.Type
-        //        },
-        //        Type = "individual"
-        //    };
-        //}
-
     }
 }
