@@ -76,7 +76,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
                 throw;
             }
         }
-        
+
         [HttpPatch]
         [Route("accounts")]
         [ActionAuth]
@@ -86,7 +86,9 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
             {
                 var person = this.Request.Properties["Person"] as PersonResponse;
 
-                var response = this._personService.UpdatePerson(person.PersonKey, request);
+            Guid personKey = new Guid();
+
+            var response = this._personService.UpdatePerson(personKey, request);
 
                 return Ok(response);
             }

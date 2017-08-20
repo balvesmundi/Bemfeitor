@@ -8,8 +8,6 @@
 
         public string Code { get; set; }
 
-        public string Status { get; set; }
-
         public long PayerPersonId { get; set; }
 
         public string StatementDescriptor { get; set; }

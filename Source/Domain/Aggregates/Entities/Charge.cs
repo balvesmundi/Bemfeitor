@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Domain.Aggregates.Entities
 {
@@ -21,6 +22,6 @@ namespace Domain.Aggregates.Entities
 
         public virtual Person Payer { get; set; }
 
-        public virtual LoanHistory LoanHistory { get; set; }
+        public virtual List<LoanHistory> Loans { get; set; }
     }
 }

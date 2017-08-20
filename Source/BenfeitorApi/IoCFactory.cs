@@ -67,6 +67,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi
             _container.RegisterType<IPersonService, PersonService>();
             _container.RegisterType<ILoanService, LoanService>();
             _container.RegisterType<IRecipientService, RecipientService>();
+            _container.RegisterType<IChargeService, ChargeService>();
 
             // Factories
             _container.RegisterType<IPaymentFactory, PaymentFactory>();
