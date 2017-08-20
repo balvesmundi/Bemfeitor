@@ -15,12 +15,14 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
     {
         private ILoanRepository _loanRepository;
         private IPersonRepository _personRepository;
+        private IChargeService _chargeService;
 
-        public LoanService(ILoanRepository loanRepository, IPersonRepository personRepository)
+        public LoanService(ILoanRepository loanRepository, IPersonRepository personRepository, IChargeService chargeService)
         {
 
             this._loanRepository = loanRepository;
             this._personRepository = personRepository;
+            this._chargeService = chargeService;
         }
 
         public LoanResponse CreateLoan(CreateLoanRequest request, long borrowerId, long lenderId)
@@ -28,7 +30,18 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 
             using (var scope = new TransactionScope(TransactionScopeOption.Required, new TransactionOptions { IsolationLevel = IsolationLevel.ReadUncommitted }))
             {
-                var loanHistory = LoanMapper.MapLoanHistory(request, borrowerId, lenderId);
+
+                var chargeRequest = new CreateChargeRequest()
+                {
+                    AmountInCents = request.AmountInCents,
+                    Code = new Random().Next(int.MaxValue).ToString(),
+                    PayerPersonId = lenderId,
+                    StatementDescriptor = "Emprestimo"
+                };
+
+                var chargeResponse = this._chargeService.CreateCharge(chargeRequest);
+
+                var loanHistory = LoanMapper.MapLoanHistory(request, borrowerId, lenderId, chargeResponse.ChargeId);
 
                 this._loanRepository.Add(loanHistory);
 
@@ -67,6 +80,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
         public void Dispose()
         {
             this._loanRepository.Dispose();
+            this._chargeService.Dispose();
         }
 
         #endregion

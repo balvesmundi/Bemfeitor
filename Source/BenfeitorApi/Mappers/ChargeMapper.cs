@@ -23,11 +23,12 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
             };
         }
 
-        public static ChargeResponse MapChargeResponse(CreateChargeResponseDTO responseDTO)
+        public static ChargeResponse MapChargeResponse(CreateChargeResponseDTO responseDTO, long chargeId)
         {
 
             return new ChargeResponse()
             {
+                ChargeId = chargeId,
                 GatewayId = responseDTO.GatewayId,
                 Status = responseDTO.Status
             };

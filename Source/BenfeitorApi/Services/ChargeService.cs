@@ -56,7 +56,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Services
 
                 scope.Complete();
 
-                return ChargeMapper.MapChargeResponse(response);
+                return ChargeMapper.MapChargeResponse(response, charge.ChargeId);
             }
         }
 

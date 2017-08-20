@@ -12,7 +12,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
 {
     public static class LoanMapper
     {
-        public static LoanHistory MapLoanHistory(CreateLoanRequest request, long borrowerId, long lenderId)
+        public static LoanHistory MapLoanHistory(CreateLoanRequest request, long borrowerId, long lenderId, long chargeId)
         {
 
             return new LoanHistory()
@@ -23,7 +23,8 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
                 TaxPerDay = request.TaxPerDay,
                 CreateDate = DateTime.UtcNow,
                 PersonBorrowerId = borrowerId,
-                PersonLenderId = lenderId
+                PersonLenderId = lenderId,
+                ChargeId = chargeId
             };
         }
 
@@ -36,7 +37,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
             {
                 LoanHistoryId = loanHistory.LoanHistoryId,
                 LoanStatusEnum = loanStatusEnum.ToString(),
-                
+
                 AmountInCents = loanHistory.AmountInCents,
                 DueDate = loanHistory.DueDate,
                 TaxPerDay = loanHistory.TaxPerDay,
@@ -53,7 +54,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
             if (loanHistories == null) return null;
 
             var loanResponses = new List<LoanResponse>();
-            foreach(var loan in loanHistories)
+            foreach (var loan in loanHistories)
             {
                 loanResponses.Add(MapLoanHistoryResponse(loan));
             }
