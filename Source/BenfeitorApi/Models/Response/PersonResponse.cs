@@ -24,6 +24,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Models.Response
         public long? BalanceInCents { get; set; }
         public string LoanTypeEnum { get; set; }
         public long? LoanInCents { get; set; }
+        public string LoanDescription { get; set; }
         public DateTime? DueDate { get; set; }
         public decimal? TaxPerDay { get; set; }
         public int CountAsBorrower { get; set; }

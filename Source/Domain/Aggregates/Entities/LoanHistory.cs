@@ -28,6 +28,8 @@ namespace Domain.Aggregates.Entities
 
         public DateTime CreateDate { get; set; }
 
+        public string LoanDescription { get; set; }
+
         public long ChargeId { get; set; }
 
         public Person Lender { get; set; }

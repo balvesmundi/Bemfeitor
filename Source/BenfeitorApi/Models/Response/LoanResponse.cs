@@ -19,6 +19,8 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Models.Response
 
         public decimal? TaxPerDay { get; set; }
 
+        public string LoanDescription { get; set; }
+
 
         public byte? LenderGrade { get; set; }
 

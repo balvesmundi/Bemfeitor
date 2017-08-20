@@ -82,12 +82,18 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Controllers
         [ActionAuth]
         public IHttpActionResult UpdateAccount(CreatePersonRequest request)
         {
+            try
+            {
+                var person = this.Request.Properties["Person"] as PersonResponse;
 
-            Guid personKey = new Guid();
+                var response = this._personService.UpdatePerson(person.PersonKey, request);
 
-            var response = this._personService.UpdatePerson(personKey, request);
-
-            return Ok(response);
+                return Ok(response);
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
         }
 
         [HttpDelete]

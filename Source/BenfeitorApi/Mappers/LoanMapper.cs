@@ -23,7 +23,8 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
                 TaxPerDay = request.TaxPerDay,
                 CreateDate = DateTime.UtcNow,
                 PersonBorrowerId = borrowerId,
-                PersonLenderId = lenderId
+                PersonLenderId = lenderId,
+                LoanDescription = request.LoanDescription
             };
         }
 
@@ -40,6 +41,7 @@ namespace MundiPagg.Benfeitor.BenfeitorApi.Mappers
                 AmountInCents = loanHistory.AmountInCents,
                 DueDate = loanHistory.DueDate,
                 TaxPerDay = loanHistory.TaxPerDay,
+                LoanDescription = loanHistory.LoanDescription,
 
                 LenderGrade = loanHistory.LenderGrade,
                 BorrowerGrade = loanHistory.BorrowerGrade,
