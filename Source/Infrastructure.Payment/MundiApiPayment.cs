@@ -94,7 +94,11 @@ namespace Infrastructure.Payment
                     {
                         Capture = requestDTO.Capture,
                         CardId = requestDTO.CardId,
-                        StatementDescriptor = requestDTO.StatementDescriptor
+                        StatementDescriptor = requestDTO.StatementDescriptor,
+                        Card = new MundiAPI.PCL.Models.CreateCardRequest()
+                        {
+                            Cvv = "123"
+                        }
                     },
                     PaymentMethod = "credit_card"
                 }
